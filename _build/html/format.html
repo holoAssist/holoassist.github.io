@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Label Format &mdash; BDD100K  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Evaluation" href="evaluate.html" />
+    <link rel="prev" title="Using Data" href="usage.html" />  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-0G3CG42YMM"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-0G3CG42YMM");
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> BDD100K
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Data Download</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="download.html#videos">Videos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#video-torrent">Video Torrent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#video-parts">Video Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#info">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#k-images">100K Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#id1">10K Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#labels">Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#drivable-area">Drivable Area</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#lane-marking">Lane Marking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#semantic-segmentation">Semantic Segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#instance-segmentation">Instance Segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#panoptic-segmentation">Panoptic Segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#mot-2020-labels">MOT 2020 Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#mot-2020-images">MOT 2020 Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#detection-2020-labels">Detection 2020 Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#mots-2020-labels">MOTS 2020 Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#mots-2020-images">MOTS 2020 Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#pose-estimation-labels">Pose Estimation Labels</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#dependency">Dependency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#understanding-the-data">Understanding the Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#trajectories">Trajectories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#semantic-segmentation">Semantic Segmentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Label Format</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#categories">Categories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#segmentation-formats">Segmentation Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#format-conversion">Format Conversion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="evaluate.html">Evaluation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="evaluate.html#detection">Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluate.html#instance-segmentation">Instance Segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluate.html#pose-estimation">Pose Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluate.html#panoptic-segmentation">Panoptic Segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluate.html#semantic-segmentation">Semantic Segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluate.html#drivable-area">Drivable Area</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluate.html#lane-marking">Lane Marking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluate.html#multiple-object-tracking">Multiple Object Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluate.html#multi-object-tracking-and-segmentation-segmentation-tracking">Multi Object Tracking and Segmentation (Segmentation Tracking)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BDD100K</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Label Format</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/format.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="label-format">
+<h1>Label Format<a class="headerlink" href="#label-format" title="Permalink to this headline"></a></h1>
+<p>This is compatible with the labels generated by
+<a class="reference external" href="https://www.scalabel.ai/">Scalabel</a>. The labels are released in <a class="reference external" href="https://doc.scalabel.ai/format.html">Scalabel Format</a>. A label
+<a class="reference external" href="https://google.github.io/styleguide/jsoncstyleguide.xml">json</a> file is a list
+of frame objects with the fields below. Please note that this format is a
+superset of the data fields. For example, <cite>box3d</cite> may be absent if the label is
+a 2d bounding box, and <cite>intrinsics</cite> may not appear if the exact camera
+calibration is unknown.</p>
+<section id="categories">
+<h2>Categories<a class="headerlink" href="#categories" title="Permalink to this headline"></a></h2>
+<section id="object-detection">
+<h3>Object Detection<a class="headerlink" href="#object-detection" title="Permalink to this headline"></a></h3>
+<p>For object detection, 10 classes are evaluated. They are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">:</span> <span class="n">pedestrian</span>
+<span class="mi">2</span><span class="p">:</span> <span class="n">rider</span>
+<span class="mi">3</span><span class="p">:</span> <span class="n">car</span>
+<span class="mi">4</span><span class="p">:</span> <span class="n">truck</span>
+<span class="mi">5</span><span class="p">:</span> <span class="n">bus</span>
+<span class="mi">6</span><span class="p">:</span> <span class="n">train</span>
+<span class="mi">7</span><span class="p">:</span> <span class="n">motorcycle</span>
+<span class="mi">8</span><span class="p">:</span> <span class="n">bicycle</span>
+<span class="mi">9</span><span class="p">:</span> <span class="n">traffic</span> <span class="n">light</span>
+<span class="mi">10</span><span class="p">:</span> <span class="n">traffic</span> <span class="n">sign</span>
+</pre></div>
+</div>
+<p>Note that, the field <cite>category_id</cite> range from <strong>1</strong> instead of 0.</p>
+</section>
+<section id="instance-segmentation-box-tracking-segmentation-tracking">
+<h3>Instance Segmentation, Box Tracking, Segmentation Tracking<a class="headerlink" href="#instance-segmentation-box-tracking-segmentation-tracking" title="Permalink to this headline"></a></h3>
+<p>For instance segmentation, multi object tracking (box tracking), and multi object tracking and segmentation (segmentation tracking),
+only the first <strong>8</strong> classes are used and evaluated.</p>
+</section>
+<section id="semantic-segmentation">
+<h3>Semantic Segmentation<a class="headerlink" href="#semantic-segmentation" title="Permalink to this headline"></a></h3>
+<p>Meanwhile, for the semantic segmentation task, 19 classes are evaluated. They are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">:</span>  <span class="n">road</span>
+<span class="mi">1</span><span class="p">:</span>  <span class="n">sidewalk</span>
+<span class="mi">2</span><span class="p">:</span>  <span class="n">building</span>
+<span class="mi">3</span><span class="p">:</span>  <span class="n">wall</span>
+<span class="mi">4</span><span class="p">:</span>  <span class="n">fence</span>
+<span class="mi">5</span><span class="p">:</span>  <span class="n">pole</span>
+<span class="mi">6</span><span class="p">:</span>  <span class="n">traffic</span> <span class="n">light</span>
+<span class="mi">7</span><span class="p">:</span>  <span class="n">traffic</span> <span class="n">sign</span>
+<span class="mi">8</span><span class="p">:</span>  <span class="n">vegetation</span>
+<span class="mi">9</span><span class="p">:</span>  <span class="n">terrain</span>
+<span class="mi">10</span><span class="p">:</span> <span class="n">sky</span>
+<span class="mi">11</span><span class="p">:</span> <span class="n">person</span>
+<span class="mi">12</span><span class="p">:</span> <span class="n">rider</span>
+<span class="mi">13</span><span class="p">:</span> <span class="n">car</span>
+<span class="mi">14</span><span class="p">:</span> <span class="n">truck</span>
+<span class="mi">15</span><span class="p">:</span> <span class="n">bus</span>
+<span class="mi">16</span><span class="p">:</span> <span class="n">train</span>
+<span class="mi">17</span><span class="p">:</span> <span class="n">motorcycle</span>
+<span class="mi">18</span><span class="p">:</span> <span class="n">bicycle</span>
+</pre></div>
+</div>
+<p><strong>255</strong> is used for “unknown” category, and will not be evaluated.</p>
+</section>
+<section id="panoptic-segmentation">
+<h3>Panoptic Segmentation<a class="headerlink" href="#panoptic-segmentation" title="Permalink to this headline"></a></h3>
+<p>For the panoptic segmentation task, 40 classes are evaluated. They are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">:</span>  <span class="n">unlabeled</span>
+<span class="mi">1</span><span class="p">:</span>  <span class="n">dynamic</span>
+<span class="mi">2</span><span class="p">:</span>  <span class="n">ego</span> <span class="n">vehicle</span>
+<span class="mi">3</span><span class="p">:</span>  <span class="n">ground</span>
+<span class="mi">4</span><span class="p">:</span>  <span class="n">static</span>
+<span class="mi">5</span><span class="p">:</span>  <span class="n">parking</span>
+<span class="mi">6</span><span class="p">:</span>  <span class="n">rail</span> <span class="n">track</span>
+<span class="mi">7</span><span class="p">:</span>  <span class="n">road</span>
+<span class="mi">8</span><span class="p">:</span>  <span class="n">sidewalk</span>
+<span class="mi">9</span><span class="p">:</span>  <span class="n">bridge</span>
+<span class="mi">10</span><span class="p">:</span> <span class="n">building</span>
+<span class="mi">11</span><span class="p">:</span> <span class="n">fence</span>
+<span class="mi">12</span><span class="p">:</span> <span class="n">garage</span>
+<span class="mi">13</span><span class="p">:</span> <span class="n">guard</span> <span class="n">rail</span>
+<span class="mi">14</span><span class="p">:</span> <span class="n">tunnel</span>
+<span class="mi">15</span><span class="p">:</span> <span class="n">wall</span>
+<span class="mi">16</span><span class="p">:</span> <span class="n">banner</span>
+<span class="mi">17</span><span class="p">:</span> <span class="n">billboard</span>
+<span class="mi">18</span><span class="p">:</span> <span class="n">lane</span> <span class="n">divider</span>
+<span class="mi">19</span><span class="p">:</span> <span class="n">parking</span> <span class="n">sign</span>
+<span class="mi">20</span><span class="p">:</span> <span class="n">pole</span>
+<span class="mi">21</span><span class="p">:</span> <span class="n">polegroup</span>
+<span class="mi">22</span><span class="p">:</span> <span class="n">street</span> <span class="n">light</span>
+<span class="mi">23</span><span class="p">:</span> <span class="n">traffic</span> <span class="n">cone</span>
+<span class="mi">24</span><span class="p">:</span> <span class="n">traffic</span> <span class="n">device</span>
+<span class="mi">25</span><span class="p">:</span> <span class="n">traffic</span> <span class="n">light</span>
+<span class="mi">26</span><span class="p">:</span> <span class="n">traffic</span> <span class="n">sign</span>
+<span class="mi">27</span><span class="p">:</span> <span class="n">traffic</span> <span class="n">sign</span> <span class="n">frame</span>
+<span class="mi">28</span><span class="p">:</span> <span class="n">terrain</span>
+<span class="mi">29</span><span class="p">:</span> <span class="n">vegetation</span>
+<span class="mi">30</span><span class="p">:</span> <span class="n">sky</span>
+<span class="mi">31</span><span class="p">:</span> <span class="n">person</span>
+<span class="mi">32</span><span class="p">:</span> <span class="n">rider</span>
+<span class="mi">33</span><span class="p">:</span> <span class="n">bicycle</span>
+<span class="mi">34</span><span class="p">:</span> <span class="n">bus</span>
+<span class="mi">35</span><span class="p">:</span> <span class="n">car</span>
+<span class="mi">36</span><span class="p">:</span> <span class="n">caravan</span>
+<span class="mi">37</span><span class="p">:</span> <span class="n">motorcycle</span>
+<span class="mi">38</span><span class="p">:</span> <span class="n">trailer</span>
+<span class="mi">39</span><span class="p">:</span> <span class="n">train</span>
+<span class="mi">40</span><span class="p">:</span> <span class="n">truck</span>
+</pre></div>
+</div>
+<p>Classes 1-30 are <strong>stuffs</strong>, 31-40 are <strong>things</strong>.</p>
+</section>
+<section id="drivable-area">
+<h3>Drivable Area<a class="headerlink" href="#drivable-area" title="Permalink to this headline"></a></h3>
+<p>For the drivable area task, there are 3 classes. They are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">:</span> <span class="n">direct</span>
+<span class="mi">1</span><span class="p">:</span> <span class="n">alternative</span>
+<span class="mi">2</span><span class="p">:</span> <span class="n">background</span>
+</pre></div>
+</div>
+<p>“Background” is not considered during evaluation.</p>
+</section>
+<section id="lane-marking">
+<h3>Lane Marking<a class="headerlink" href="#lane-marking" title="Permalink to this headline"></a></h3>
+<p>For the lane marking task, there are 3 sub-tasks: lane categories, lane directions, and lane styles.
+There are 9, 3, and 3 classes for each sub-task.</p>
+<p>Lane Categories</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">:</span> <span class="n">crosswalk</span>
+<span class="mi">1</span><span class="p">:</span> <span class="n">double</span> <span class="n">other</span>
+<span class="mi">2</span><span class="p">:</span> <span class="n">double</span> <span class="n">white</span>
+<span class="mi">3</span><span class="p">:</span> <span class="n">double</span> <span class="n">yellow</span>
+<span class="mi">4</span><span class="p">:</span> <span class="n">road</span> <span class="n">curb</span>
+<span class="mi">5</span><span class="p">:</span> <span class="n">single</span> <span class="n">other</span>
+<span class="mi">6</span><span class="p">:</span> <span class="n">single</span> <span class="n">white</span>
+<span class="mi">7</span><span class="p">:</span> <span class="n">single</span> <span class="n">yellow</span>
+<span class="mi">8</span><span class="p">:</span> <span class="n">background</span>
+</pre></div>
+</div>
+<p>Lane Directions</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">:</span> <span class="n">parallel</span>
+<span class="mi">1</span><span class="p">:</span> <span class="n">vertical</span>
+<span class="mi">2</span><span class="p">:</span> <span class="n">background</span>
+</pre></div>
+</div>
+<p>Lane Styles</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">:</span> <span class="n">solid</span>
+<span class="mi">1</span><span class="p">:</span> <span class="n">dashed</span>
+<span class="mi">2</span><span class="p">:</span> <span class="n">background</span>
+</pre></div>
+</div>
+<p>“Background” is not considered during evaluation.</p>
+</section>
+<section id="pose-estimation">
+<h3>Pose Estimation<a class="headerlink" href="#pose-estimation" title="Permalink to this headline"></a></h3>
+<p>For pose estimation, 18 classes (joints) are evaluated. They are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">:</span>  <span class="n">head</span>
+<span class="mi">1</span><span class="p">:</span>  <span class="n">neck</span>
+<span class="mi">2</span><span class="p">:</span>  <span class="n">right_shoulder</span>
+<span class="mi">3</span><span class="p">:</span>  <span class="n">right_elbow</span>
+<span class="mi">4</span><span class="p">:</span>  <span class="n">right_wrist</span>
+<span class="mi">5</span><span class="p">:</span>  <span class="n">left_shoulder</span>
+<span class="mi">6</span><span class="p">:</span>  <span class="n">left_elbow</span>
+<span class="mi">7</span><span class="p">:</span>  <span class="n">left_wrist</span>
+<span class="mi">8</span><span class="p">:</span>  <span class="n">right_hip</span>
+<span class="mi">9</span><span class="p">:</span>  <span class="n">right_knee</span>
+<span class="mi">10</span><span class="p">:</span> <span class="n">right_ankle</span>
+<span class="mi">11</span><span class="p">:</span> <span class="n">left_hip</span>
+<span class="mi">12</span><span class="p">:</span> <span class="n">left_knee</span>
+<span class="mi">13</span><span class="p">:</span> <span class="n">left_ankle</span>
+<span class="mi">14</span><span class="p">:</span> <span class="n">right_hand</span>
+<span class="mi">15</span><span class="p">:</span> <span class="n">left_hand</span>
+<span class="mi">16</span><span class="p">:</span> <span class="n">right_foot</span>
+<span class="mi">17</span><span class="p">:</span> <span class="n">left_foot</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline"></a></h2>
+<p>BDD100K dataset has some specific properties.</p>
+<section id="frame-attributes">
+<h3>Frame attributes<a class="headerlink" href="#frame-attributes" title="Permalink to this headline"></a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">weather</span><span class="p">:</span> <span class="s">&quot;rainy|snowy|clear|overcast|undefined|partly</span><span class="nv"> </span><span class="s">cloudy|foggy&quot;</span>
+<span class="p p-Indicator">-</span> <span class="nt">scene</span><span class="p">:</span> <span class="s">&quot;tunnel|residential|parking</span><span class="nv"> </span><span class="s">lot|undefined|city</span><span class="nv"> </span><span class="s">street|gas</span><span class="nv"> </span><span class="s">stations|highway|&quot;</span>
+<span class="p p-Indicator">-</span> <span class="nt">timeofday</span><span class="p">:</span> <span class="s">&quot;daytime|night|dawn/dusk|undefined&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="label-attributes">
+<h3>Label attributes<a class="headerlink" href="#label-attributes" title="Permalink to this headline"></a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">occluded</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">boolean</span>
+<span class="p p-Indicator">-</span> <span class="nt">truncated</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">boolean</span>
+<span class="p p-Indicator">-</span> <span class="nt">trafficLightColor</span><span class="p">:</span> <span class="s">&quot;red|green|yellow|none&quot;</span>
+<span class="p p-Indicator">-</span> <span class="nt">areaType</span><span class="p">:</span> <span class="s">&quot;direct</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">alternative&quot;</span> <span class="l l-Scalar l-Scalar-Plain">(for driving area)</span>
+<span class="p p-Indicator">-</span> <span class="nt">laneDirection</span><span class="p">:</span> <span class="s">&quot;parallel|vertical&quot;</span> <span class="l l-Scalar l-Scalar-Plain">(for lanes)</span>
+<span class="p p-Indicator">-</span> <span class="nt">laneStyle</span><span class="p">:</span> <span class="s">&quot;solid</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">dashed&quot;</span> <span class="l l-Scalar l-Scalar-Plain">(for lanes)</span>
+<span class="p p-Indicator">-</span> <span class="nt">laneTypes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">(for lanes)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="segmentation-formats">
+<span id="seg-mask"></span><h2>Segmentation Formats<a class="headerlink" href="#segmentation-formats" title="Permalink to this headline"></a></h2>
+<p>We provide labels for all segmentation tasks (semantic segmentation,
+drivable area, lane marking, instance segmentation, panoptic segmentation,
+and segmentation tracking) in both JSON and <strong>mask</strong> formats.
+The JSON format saves each segmentation mask as either polygons or in RLE.
+That <code class="docutils literal notranslate"><span class="pre">poly2d</span></code> used in JSONs is not of the same format as COCO.
+Instead, the <code class="docutils literal notranslate"><span class="pre">poly2d</span></code> field stores a Bezier Curve with vertices and control points.
+The <code class="docutils literal notranslate"><span class="pre">rle</span></code> used is consistent with COCO.
+We now use RLE as the main format for segmentation tasks as it is much more
+compact and easy to handle compared to the mask format, but the mask format is
+still supported.
+We do not allow overlap in the segmentation masks as each pixel should be assigned
+a single category only.
+During evaluation, predictions with overlaps will be ignored.
+The mask format handles this naturally, but for the RLE format post-processing
+is needed to remove overlaps.
+We describe the mask format for each segmentation task below.</p>
+<section id="id1">
+<h3>Semantic Segmentation<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
+<p>The ground-truth of each image is saved into an one-channel png (8 bits per pixel).
+The value of each pixel represents its category. 255 usually means “ignore”.</p>
+</section>
+<section id="lane-mask">
+<span id="id2"></span><h3>Lane Marking<a class="headerlink" href="#lane-mask" title="Permalink to this headline"></a></h3>
+<p>For lane marking, there are three sub-tasks: lane categories, lane direction and lane styles.
+A one-channel png file is used for each image to store all classes information.
+The format for a pixel is defined as the image below.
+The <strong>3-th</strong> bit and the <strong>4-th</strong> bit are for <strong>direction</strong> and <strong>style</strong>.
+The <strong>last 3</strong> bits are for <strong>category</strong>.
+Most importantly, the <strong>5</strong>-th bit is to indicate whether this pixel belongs to the <strong>background</strong> (0: lane, 1: background).</p>
+<figure class="align-default">
+<img alt="Downloading buttons" src="_images/lane.png" />
+</figure>
+</section>
+<section id="instance-segmentation">
+<span id="bitmask"></span><h3>Instance Segmentation<a class="headerlink" href="#instance-segmentation" title="Permalink to this headline"></a></h3>
+<p>The labels for <strong>instance segmentation</strong>, <strong>panoptic segmentation</strong> and <strong>segmentation tracking</strong>
+are saved as bitmasks, where the labels for each image are stored in an <strong>RGBA</strong> png file.
+For the RGBA image, the first byte, R, is used for the category id and ranges from 1 (0 is used for the background).
+G is for the instance attributes. Currently, four attributes are used, and they are “truncated”, “occluded”, “crowd” and “ignore”.
+Note that boxes with “crowd” or “ignore” labels will not be considered during evaluation.
+The above four attributes are stored in least significant bits of G. Given this, <code class="docutils literal notranslate"><span class="pre">G</span> <span class="pre">=</span> <span class="pre">(truncated</span> <span class="pre">&lt;&lt;</span> <span class="pre">3)</span> <span class="pre">+</span> <span class="pre">(occluded</span> <span class="pre">&lt;&lt;</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">(crowd</span> <span class="pre">&lt;&lt;</span> <span class="pre">1)</span> <span class="pre">+</span> <span class="pre">ignore</span></code>
+. Finally, the B channel store the “ann_id” for instance segmentation and the A channel for segmentation tracking,
+which can be computed as <code class="docutils literal notranslate"><span class="pre">(B</span> <span class="pre">&lt;&lt;</span> <span class="pre">8)</span> <span class="pre">+</span> <span class="pre">A</span></code>. The below image is for reference.</p>
+<figure class="align-default">
+<img alt="Downloading buttons" src="_images/bitmask.png" />
+</figure>
+</section>
+</section>
+<section id="format-conversion">
+<h2>Format Conversion<a class="headerlink" href="#format-conversion" title="Permalink to this headline"></a></h2>
+<section id="coordinate-system">
+<h3>Coordinate System<a class="headerlink" href="#coordinate-system" title="Permalink to this headline"></a></h3>
+<p>During our labeling, we regard the top-left corner of the most top-left pixel as (0, 0).
+In our conversion scripts, the width is computed as <code class="code docutils literal notranslate"><span class="pre">x2</span> <span class="pre">-</span> <span class="pre">x1</span> <span class="pre">+</span> <span class="pre">1</span></code> and height is computed as <code class="code docutils literal notranslate"><span class="pre">y2</span> <span class="pre">-</span> <span class="pre">y1</span> <span class="pre">+</span> <span class="pre">1</span></code>,
+following the Scalabel format.
+This manner is consistent with <a class="reference external" href="https://github.com/open-mmlab/mmdetection/releases/tag/v1.2.0">MMDetection 1.x</a> and
+<a class="reference external" href="https://github.com/facebookresearch/maskrcnn-benchmark">maskrcnn-benchmark</a>.
+Note that, <a class="reference external" href="https://pypi.org/project/pycocotools/">pycocotools</a>,
+<a class="reference external" href="https://github.com/open-mmlab/mmdetection">MMDetection 2.x</a>, and
+<a class="reference external" href="https://github.com/facebookresearch/detectron2">Detectron2</a> adopt a different definition.
+For these, you can use <code class="docutils literal notranslate"><span class="pre">to_coco</span></code> to convert the annotations to COCO format, which will be consistent.</p>
+</section>
+<section id="from-coco">
+<h3>from_coco<a class="headerlink" href="#from-coco" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">from_coco</span></code> converts COCO format JSON files into BDD100K format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python3 -m bdd100k.label.from_coco -i ${input_file} -o ${out_path} [--nproc ${process_num}]
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>process_num</cite>: the number of processes used for the conversion. Default as 4.</p></li>
+</ul>
+</section>
+<section id="to-mask">
+<h3>to_mask<a class="headerlink" href="#to-mask" title="Permalink to this headline"></a></h3>
+<p>You can run the conversion from poly2d to masks/bitmasks by this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python3 -m bdd100k.label.to_mask -m sem_seg|drivable|lane_mark|ins_seg|pan_seg|seg_track \
+    -i ${in_path} -o ${out_path} [--nproc ${process_num}]
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>process_num</cite>: the number of processes used for the conversion. Default as 4.</p></li>
+</ul>
+</section>
+<section id="to-color">
+<h3>to_color<a class="headerlink" href="#to-color" title="Permalink to this headline"></a></h3>
+<p>You can run the conversion from masks/bitmasks to colormaps by this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python3 -m bdd100k.label.to_color -m sem_seg|ins_seg|seg_track \
+    -i ${in_path} -o ${out_path} [--nproc ${process_num}]
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>process_num</cite>: the number of processes used for the conversion. Default as 4.</p></li>
+</ul>
+</section>
+<section id="to-coco">
+<h3>to_coco<a class="headerlink" href="#to-coco" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">to_coco</span></code> converts BDD100K JSONs/masks into COCO format.
+For detection, box tracking, and pose estimation, run this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python3 -m bdd100k.label.to_coco -m det|box_track|pose \
+    -i ${in_path} -o ${out_path} [--nproc ${process_num}]
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>process_num</cite>: the number of processes used for the conversion. Default as 4.</p></li>
+</ul>
+<p>For instance segmentation and segmentation tracking, converting from
+JSON, JSON + Bitmasks, and from Bitmasks are all supported.
+For RLEs, use this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python3 -m bdd100k.label.to_coco -m ins_seg|seg_track \
+    -i ${in_path} -o ${out_path} [--nproc ${process_num}]
+</pre></div>
+</div>
+<p>For Bitmasks, use this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python3 -m bdd100k.label.to_coco -m ins_seg|seg_track \
+    -i ${in_path} -o ${out_path} -mb ${mask_base} [--nproc ${process_num}]
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>mask_base</cite>: the path to the bitmasks</p></li>
+</ul>
+<p>If you only have Bitmasks in hand and don’t use the <cite>scalabel_id</cite> field, you can use this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python3 -m bdd100k.label.to_coco -m ins_seg|seg_track --only-mask \
+    -i ${mask_base} -o ${out_path} [--nproc ${process_num}]
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>mask_base</cite>: the path to the bitmasks</p></li>
+</ul>
+</section>
+<section id="to-rle">
+<h3>to_rle<a class="headerlink" href="#to-rle" title="Permalink to this headline"></a></h3>
+<p>You can run the conversion from masks/bitmasks to RLEs by this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python3 -m bdd100k.label.to_rle -m sem_seg|drivable|ins_seg|seg_track \
+    -i ${in_path} -o ${out_path} [--nproc ${process_num}]
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>process_num</cite>: the number of processes used for the conversion. Default as 4.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usage.html" class="btn btn-neutral float-left" title="Using Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="evaluate.html" class="btn btn-neutral float-right" title="Evaluation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Fisher Yu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evaluation &mdash; BDD100K  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Label Format" href="format.html" />  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-0G3CG42YMM"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-0G3CG42YMM");
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> BDD100K
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Data Download</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="download.html#videos">Videos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#video-torrent">Video Torrent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#video-parts">Video Parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#info">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#k-images">100K Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#id1">10K Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#labels">Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#drivable-area">Drivable Area</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#lane-marking">Lane Marking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#semantic-segmentation">Semantic Segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#instance-segmentation">Instance Segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#panoptic-segmentation">Panoptic Segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#mot-2020-labels">MOT 2020 Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#mot-2020-images">MOT 2020 Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#detection-2020-labels">Detection 2020 Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#mots-2020-labels">MOTS 2020 Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#mots-2020-images">MOTS 2020 Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#pose-estimation-labels">Pose Estimation Labels</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#dependency">Dependency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#understanding-the-data">Understanding the Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#trajectories">Trajectories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#semantic-segmentation">Semantic Segmentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="format.html">Label Format</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="format.html#categories">Categories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format.html#attributes">Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format.html#segmentation-formats">Segmentation Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format.html#format-conversion">Format Conversion</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Evaluation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#detection">Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instance-segmentation">Instance Segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pose-estimation">Pose Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#panoptic-segmentation">Panoptic Segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semantic-segmentation">Semantic Segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#drivable-area">Drivable Area</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lane-marking">Lane Marking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multiple-object-tracking">Multiple Object Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multi-object-tracking-and-segmentation-segmentation-tracking">Multi Object Tracking and Segmentation (Segmentation Tracking)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BDD100K</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Evaluation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/evaluate.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="evaluation">
+<h1>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline"></a></h1>
+<section id="detection">
+<h2>Detection<a class="headerlink" href="#detection" title="Permalink to this headline"></a></h2>
+<section id="submission-format">
+<h3>Submission format<a class="headerlink" href="#submission-format" title="Permalink to this headline"></a></h3>
+<p>To evaluate your algorithms on the BDD100K detection benchmark, you may prepare
+your prediction results using the <a class="reference external" href="https://doc.scalabel.ai/format.html">Scalabel Format</a>.
+Specifically, these fields are required:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span> <span class="n">of</span> <span class="n">current</span> <span class="n">frame</span>
+<span class="o">-</span> <span class="n">labels</span> <span class="p">[]:</span>
+    <span class="o">-</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="ow">not</span> <span class="n">used</span> <span class="n">here</span><span class="p">,</span> <span class="n">but</span> <span class="n">required</span> <span class="k">for</span> <span class="n">loading</span>
+    <span class="o">-</span> <span class="n">category</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">predicted</span> <span class="n">category</span>
+    <span class="o">-</span> <span class="n">score</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="o">-</span> <span class="n">box2d</span> <span class="p">[]:</span>
+        <span class="o">-</span> <span class="n">x1</span><span class="p">:</span> <span class="nb">float</span>
+        <span class="o">-</span> <span class="n">y1</span><span class="p">:</span> <span class="nb">float</span>
+        <span class="o">-</span> <span class="n">x2</span><span class="p">:</span> <span class="nb">float</span>
+        <span class="o">-</span> <span class="n">y2</span><span class="p">:</span> <span class="nb">float</span>
+</pre></div>
+</div>
+<p>You can submit your predictions to our <a class="reference external" href="https://eval.ai/web/challenges/challenge-page/1260">evaluation server</a> hosted on EvalAI.
+The submission file needs to be a JSON file.</p>
+</section>
+<section id="run-evaluation-on-your-own">
+<h3>Run Evaluation on Your Own<a class="headerlink" href="#run-evaluation-on-your-own" title="Permalink to this headline"></a></h3>
+<p>You can evaluate your algorithm with public annotations by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python3 -m bdd100k.eval.run -t det -g ${gt_file} -r ${res_file}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gt_file</span></code>: ground truth file in JSON in Scalabel format.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">res_file</span></code>: prediction results file in JSON, format as described above.</p></li>
+</ul>
+<p>Other options.
+- You can specify the output file to save the evaluation results to by adding <cite>–out-file ${out_file}</cite>.</p>
+</section>
+<section id="evaluation-metrics">
+<h3>Evaluation Metrics<a class="headerlink" href="#evaluation-metrics" title="Permalink to this headline"></a></h3>
+<p>Similar to COCO evaluation, we report 12 scores as
+“AP”, “AP_50”, “AP_75”, “AP_small”, “AP_medium”, “AP_large”, “AR_max_1”, “AR_max_10”,
+“AR_max_100”, “AR_small”, “AR_medium”, “AR_large” across all the classes.</p>
+</section>
+</section>
+<section id="instance-segmentation">
+<span id="ins-seg"></span><h2>Instance Segmentation<a class="headerlink" href="#instance-segmentation" title="Permalink to this headline"></a></h2>
+<p>We use the same metrics set as for detection above. The only difference lies in the computation of distance matrices.
+Concretely, in detection, it is computed using box IoU. While for instance segmentation, mask IoU is used.</p>
+<section id="id1">
+<h3>Submission format<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
+<p>To evaluate your algorithms on the BDD100K instance segmentation benchmark, you may prepare predictions in RLE format (consistent with COCO format) or bitmask format
+(illustrated in <a class="reference internal" href="format.html#bitmask"><span class="std std-ref">Instance Segmentation Bitmask</span></a>).
+For RLE, these fields are required:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span> <span class="n">of</span> <span class="n">current</span> <span class="n">frame</span>
+<span class="o">-</span> <span class="n">labels</span> <span class="p">[]:</span>
+    <span class="o">-</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="ow">not</span> <span class="n">used</span> <span class="n">here</span><span class="p">,</span> <span class="n">but</span> <span class="n">required</span> <span class="k">for</span> <span class="n">loading</span>
+    <span class="o">-</span> <span class="n">category</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">predicted</span> <span class="n">category</span>
+    <span class="o">-</span> <span class="n">score</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="o">-</span> <span class="n">rle</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">counts</span><span class="p">:</span> <span class="nb">str</span>
+        <span class="o">-</span> <span class="n">size</span><span class="p">:</span> <span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For bitmask, in addition to the folder of bitmask images, a JSON file is needed,
+with the following format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">image</span><span class="p">,</span>
+<span class="o">-</span> <span class="n">labels</span> <span class="p">[]:</span>
+    <span class="o">-</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="ow">not</span> <span class="n">used</span> <span class="n">here</span><span class="p">,</span> <span class="n">but</span> <span class="n">required</span> <span class="k">for</span> <span class="n">loading</span>
+    <span class="o">-</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">65535</span><span class="p">],</span> <span class="n">the</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">B</span> <span class="ow">and</span> <span class="n">A</span> <span class="n">channel</span>
+    <span class="o">-</span> <span class="n">score</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">confidence</span> <span class="n">score</span> <span class="n">of</span> <span class="n">the</span> <span class="n">prediction</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>index</cite>: the value corresponds to the “ann_id” stored in B and A channels.</p></li>
+</ul>
+<p>You can submit your predictions to our <a class="reference external" href="https://eval.ai/web/challenges/challenge-page/1294">evaluation server</a> hosted on EvalAI.
+Currently, the evaluation server only supports bitmask format.</p>
+</section>
+<section id="id2">
+<h3>Run Evaluation on Your Own<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h3>
+<p>You can evaluate your algorithm with public annotations by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python3 -m bdd100k.eval.run -t ins_seg -g ${gt_path} -r ${res_path} --score-file ${res_score_file}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>gt_path</cite>: the path to the ground-truth JSON file or bitmasks images folder.</p></li>
+<li><p><cite>res_path</cite>: the path to the results JSON file or bitmasks images folder.</p></li>
+<li><p><cite>res_score_file</cite>: the JSON file with the confidence scores (for bitmasks).</p></li>
+</ul>
+<p>Other options.
+- You can specify the output file to save the evaluation results to by adding <cite>–out-file ${out_file}</cite>.</p>
+<p>Note that the evaluation results for RLE format and bitmask format are not exactly the same,
+but the difference is negligible (&lt; 0.1%).</p>
+</section>
+</section>
+<section id="pose-estimation">
+<h2>Pose Estimation<a class="headerlink" href="#pose-estimation" title="Permalink to this headline"></a></h2>
+<p>We use the same metrics set as detection and instance segmentation above. The only difference lies in the computation of distance matrices.
+Concretely, in detection, it is computed using box IoU. While for instance segmentation, mask IoU is used.
+For pose estimation, object keypoint similarity is used (OKS).</p>
+<section id="id3">
+<h3>Submission format<a class="headerlink" href="#id3" title="Permalink to this headline"></a></h3>
+<p>To evaluate your algorithms on the BDD100K pose estimation benchmark, you may prepare
+your prediction results using the <a class="reference external" href="https://doc.scalabel.ai/format.html">Scalabel Format</a>.
+Specifically, these fields are required:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+<span class="o">-</span> <span class="n">labels</span> <span class="p">[]:</span>
+    <span class="o">-</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="ow">not</span> <span class="n">used</span> <span class="n">here</span><span class="p">,</span> <span class="n">but</span> <span class="n">required</span> <span class="k">for</span> <span class="n">loading</span>
+    <span class="o">-</span> <span class="n">category</span><span class="p">:</span> <span class="s2">&quot;pedestrian&quot;</span>
+    <span class="o">-</span> <span class="n">score</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="o">-</span> <span class="n">graph</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">nodes</span> <span class="p">[]:</span>
+            <span class="o">-</span> <span class="n">location</span><span class="p">:</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="n">position</span> <span class="n">of</span> <span class="n">node</span>
+            <span class="o">-</span> <span class="n">category</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">joint</span> <span class="n">name</span>
+            <span class="o">-</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">unique</span> <span class="nb">id</span> <span class="k">for</span> <span class="n">node</span> <span class="n">used</span> <span class="k">for</span> <span class="n">defining</span> <span class="n">edges</span>
+            <span class="o">-</span> <span class="n">score</span><span class="p">:</span> <span class="nb">float</span>
+        <span class="o">-</span> <span class="n">edges</span> <span class="p">[]:</span>
+            <span class="o">-</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">source</span> <span class="n">node</span> <span class="nb">id</span>
+            <span class="o">-</span> <span class="n">target</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target</span> <span class="n">node</span> <span class="nb">id</span>
+            <span class="o">-</span> <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">type</span> <span class="n">of</span> <span class="n">edge</span>
+        <span class="o">-</span> <span class="nb">type</span><span class="p">:</span> <span class="s2">&quot;Pose2D-18Joints_Pred&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h3>Run Evaluation on Your Own<a class="headerlink" href="#id5" title="Permalink to this headline"></a></h3>
+<p>You can evaluate your algorithm with public annotations by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python3 -m bdd100k.eval.run -t pose -g ${gt_file} -r ${res_file}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gt_file</span></code>: ground truth file in JSON in Scalabel format.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">res_file</span></code>: prediction results file in JSON, format as described above.</p></li>
+</ul>
+<p>Other options.
+- You can specify the output file to save the evaluation results to by adding <cite>–out-file ${out_file}</cite>.</p>
+</section>
+<section id="id6">
+<h3>Evaluation Metrics<a class="headerlink" href="#id6" title="Permalink to this headline"></a></h3>
+<p>Similar to COCO evaluation, we report 10 scores as
+“AP”, “AP_50”, “AP_75”, “AP_medium”, “AP_large”, “AR”, “AR_50”,
+“AR_75”, “AR_medium”, “AR_large” across all the classes.</p>
+</section>
+</section>
+<section id="panoptic-segmentation">
+<h2>Panoptic Segmentation<a class="headerlink" href="#panoptic-segmentation" title="Permalink to this headline"></a></h2>
+<p>We use the same metrics as COCO panoptic segmentation.
+PQ, RQ and SQ are computed for things, stuffs, and all categories.</p>
+<section id="id7">
+<h3>Submission format<a class="headerlink" href="#id7" title="Permalink to this headline"></a></h3>
+<p>To evaluate your algorithms on the BDD100K panoptic segmentation benchmark, you may prepare predictions in RLE or bitmask format
+(illustrated in <a class="reference internal" href="format.html#bitmask"><span class="std std-ref">Panoptic Segmentation Bitmask</span></a>).
+See <a class="reference internal" href="#ins-seg"><span class="std std-ref">Instance Segmentation Evaluation</span></a> for the RLE format.</p>
+<p>[1] <a class="reference external" href="https://arxiv.org/abs/1801.00868">Kirillov, A., He, K., Girshick, R., Rother, C., &amp; Dollár, P. (2019). Panoptic segmentation. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 9404-9413).</a></p>
+</section>
+<section id="id8">
+<h3>Run Evaluation on Your Own<a class="headerlink" href="#id8" title="Permalink to this headline"></a></h3>
+<p>You can evaluate your algorithm with public annotations by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python3 -m bdd100k.eval.run -t pan_seg -g ${gt_path} -r ${res_path}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>gt_path</cite>: the path to the ground-truth JSON file or bitmasks images folder.</p></li>
+<li><p><cite>res_path</cite>: the path to the results JSON file or bitmasks images folder.</p></li>
+</ul>
+<p>Other options.
+- You can specify the output file to save the evaluation results to by adding <cite>–out-file ${out_file}</cite>.</p>
+<p>Note that the evaluation results for RLE format and bitmask format are not exactly the same,
+but the difference is negligible (&lt; 0.1%).</p>
+</section>
+</section>
+<section id="semantic-segmentation">
+<h2>Semantic Segmentation<a class="headerlink" href="#semantic-segmentation" title="Permalink to this headline"></a></h2>
+<p>We assess the performance using the standard Jaccard Index, commonly known as mean-IoU.
+Moreover, IoU for each class are also displayed for reference.</p>
+<section id="id9">
+<h3>Submission format<a class="headerlink" href="#id9" title="Permalink to this headline"></a></h3>
+<p>To evaluate your algorithms on the BDD100K semantic segmentation benchmark, you may prepare predictions in RLE or mask format.
+For RLE, these fields are required:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span> <span class="n">of</span> <span class="n">current</span> <span class="n">frame</span>
+<span class="o">-</span> <span class="n">labels</span> <span class="p">[]:</span>
+    <span class="o">-</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="ow">not</span> <span class="n">used</span> <span class="n">here</span><span class="p">,</span> <span class="n">but</span> <span class="n">required</span> <span class="k">for</span> <span class="n">loading</span>
+    <span class="o">-</span> <span class="n">category</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">predicted</span> <span class="n">category</span>
+    <span class="o">-</span> <span class="n">rle</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">counts</span><span class="p">:</span> <span class="nb">str</span>
+        <span class="o">-</span> <span class="n">size</span><span class="p">:</span> <span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For masks, the submission should be a folder of masks.</p>
+<p>You can submit your predictions to our <a class="reference external" href="https://eval.ai/web/challenges/challenge-page/1257">evaluation server</a> hosted on EvalAI.
+Currently, the evaluation server only supports mask format.</p>
+</section>
+<section id="id10">
+<h3>Run Evaluation on Your Own<a class="headerlink" href="#id10" title="Permalink to this headline"></a></h3>
+<p>You can evaluate your algorithm with public annotations by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python3 -m bdd100k.eval.run -t sem_seg -g ${gt_path} -r ${res_path}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>gt_path</cite>: the path to the ground-truth JSON file or masks images folder.</p></li>
+<li><p><cite>res_path</cite>: the path to the results JSON file or masks images folder.</p></li>
+</ul>
+<p>Other options.
+- You can specify the output file to save the evaluation results to by adding <cite>–out-file ${out_file}</cite>.</p>
+<p>Note that the evaluation results for RLE format and mask format are not exactly the same,
+but the difference is negligible (&lt; 0.1%).</p>
+</section>
+</section>
+<section id="drivable-area">
+<h2>Drivable Area<a class="headerlink" href="#drivable-area" title="Permalink to this headline"></a></h2>
+<p>The drivable area task applies the same rule with semantic segmentation.
+One notable difference is that they have different class definitions and numbers.
+Another is that the prediction of background pixels matters for drivable area.
+Unlike semantic segmentation, which ignores <em>unknown</em> pixels, drivable area instead takes consideration of
+<em>background</em> pixels when computing IoUs. Though the <em>background</em> class is not counted into the final mIoU.</p>
+<section id="submission">
+<h3>Submission<a class="headerlink" href="#submission" title="Permalink to this headline"></a></h3>
+<p>You can submit your predictions to our <a class="reference external" href="https://eval.ai/web/challenges/challenge-page/1280">evaluation server</a> hosted on EvalAI.
+Currently, the evaluation server only supports mask format.</p>
+</section>
+<section id="id11">
+<h3>Run Evaluation on Your Own<a class="headerlink" href="#id11" title="Permalink to this headline"></a></h3>
+<p>You can evaluate your algorithm with public annotations by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python3 -m bdd100k.eval.run -t drivable -g ${gt_path} -r ${res_path}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>gt_path</cite>: the path to the ground-truth JSON file or masks images folder.</p></li>
+<li><p><cite>res_path</cite>: the path to the results JSON file or masks images folder.</p></li>
+</ul>
+<p>Other options.
+- You can specify the output file to save the evaluation results to by adding <cite>–out-file ${out_file}</cite>.</p>
+<p>Note that the evaluation results for RLE format and bitmask format are not exactly the same,
+but the difference is negligible (&lt; 0.1%).</p>
+</section>
+</section>
+<section id="lane-marking">
+<h2>Lane Marking<a class="headerlink" href="#lane-marking" title="Permalink to this headline"></a></h2>
+<p>The lane marking takes the F-score [1] as the measurement.
+We evaluate the F-score for each cateogry of the three sub-tasks with threshold as 1, 2 and 5 pixels.
+Before the evaluation, morphological thinning is adopted to get predictions of 1-pixel width.
+For each sub-task, the mean F-score will be showed.
+The main item for the leaderboard is the averaged mean F-score of these three sub-tasks.</p>
+<p>[1] <a class="reference external" href="https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Perazzi_A_Benchmark_Dataset_CVPR_2016_paper.pdf">A Benchmark Dataset and Evaluation Methodology for Video Object Segmentation. F. Perazzi, J. Pont-Tuset, B. McWilliams, L. Van Gool, M. Gross, and A. Sorkine-Hornung. Computer Vision and Pattern Recognition (CVPR) 2016</a></p>
+<section id="id12">
+<h3>Submission format<a class="headerlink" href="#id12" title="Permalink to this headline"></a></h3>
+<p>To evaluate your algorithms on the BDD100K lane marking benchmark, you may prepare predictions in RLE format or mask format
+(illustrated in <a class="reference internal" href="format.html#lane-mask"><span class="std std-ref">Lane Marking Format</span></a>).</p>
+</section>
+<section id="id13">
+<h3>Run Evaluation on Your Own<a class="headerlink" href="#id13" title="Permalink to this headline"></a></h3>
+<p>You can evaluate your algorithm with public annotations by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python3 -m bdd100k.eval.run -t lane_mark -g ${gt_path} -r ${res_path}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>gt_path</cite>: the path to the ground-truth JSON file or masks images folder.</p></li>
+<li><p><cite>res_path</cite>: the path to the results JSON file or masks images folder.</p></li>
+</ul>
+<p>Other options.
+- You can specify the output file to save the evaluation results to by adding <cite>–out-file ${out_file}</cite>.</p>
+</section>
+</section>
+<section id="multiple-object-tracking">
+<h2>Multiple Object Tracking<a class="headerlink" href="#multiple-object-tracking" title="Permalink to this headline"></a></h2>
+<section id="id14">
+<h3>Submission format<a class="headerlink" href="#id14" title="Permalink to this headline"></a></h3>
+<p>To evaluate your algorithms on BDD100K multiple object tracking benchmark, the submission must be in one of these formats:</p>
+<ul class="simple">
+<li><p>A zip file of a folder that contains JSON files of each video.</p></li>
+<li><p>A zip file of a file that contains a JSON file of the entire evaluation set.</p></li>
+</ul>
+<p>The JSON file for each video should contain a list of per-frame result dictionaries with the following structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">videoName</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span> <span class="n">of</span> <span class="n">current</span> <span class="n">sequence</span>
+<span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span> <span class="n">of</span> <span class="n">current</span> <span class="n">frame</span>
+<span class="o">-</span> <span class="n">frameIndex</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">index</span> <span class="n">of</span> <span class="n">current</span> <span class="n">frame</span> <span class="n">within</span> <span class="n">sequence</span>
+<span class="o">-</span> <span class="n">labels</span> <span class="p">[]:</span>
+    <span class="o">-</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">unique</span> <span class="n">instance</span> <span class="nb">id</span> <span class="n">of</span> <span class="n">prediction</span> <span class="ow">in</span> <span class="n">current</span> <span class="n">sequence</span>
+    <span class="o">-</span> <span class="n">category</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">predicted</span> <span class="n">category</span>
+    <span class="o">-</span> <span class="n">box2d</span> <span class="p">[]:</span>
+        <span class="o">-</span> <span class="n">x1</span><span class="p">:</span> <span class="nb">float</span>
+        <span class="o">-</span> <span class="n">y1</span><span class="p">:</span> <span class="nb">float</span>
+        <span class="o">-</span> <span class="n">x2</span><span class="p">:</span> <span class="nb">float</span>
+        <span class="o">-</span> <span class="n">y2</span><span class="p">:</span> <span class="nb">float</span>
+</pre></div>
+</div>
+<p>You can find an example result file in <a class="reference external" href="https://github.com/scalabel/scalabel/blob/master/scalabel/eval/testcases/box_track/track_predictions.json">bbd100k.eval.testcases</a></p>
+<p>You can submit your predictions to our <a class="reference external" href="https://eval.ai/web/challenges/challenge-page/1259">evaluation server</a> hosted on EvalAI.</p>
+</section>
+<section id="id15">
+<h3>Run Evaluation on Your Own<a class="headerlink" href="#id15" title="Permalink to this headline"></a></h3>
+<p>You can evaluate your algorithms with public annotations by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python -m bdd100k.eval.run -t box_track -g ${gt_file} -r ${res_file}
+</pre></div>
+</div>
+<p>Other options.
+- You can specify the output file to save the evaluation results to by adding <cite>–out-file ${out_file}</cite>.</p>
+</section>
+<section id="id16">
+<h3>Evaluation Metrics<a class="headerlink" href="#id16" title="Permalink to this headline"></a></h3>
+<p>We employ mean Multiple Object Tracking Accuracy (mMOTA, mean of MOTA of the 8 categories)
+as our primary evaluation metric for ranking.
+We also employ mean ID F1 score (mIDF1) to highlight the performance
+of tracking consistency that is crucial for object tracking.
+All metrics are detailed below.
+Note that the overall performance is measured for all objects without considering the category if not mentioned.</p>
+<ul class="simple">
+<li><p>mMOTA (%): mean Multiple Object Tracking Accuracy across all 8 categories.</p></li>
+<li><p>mIDF1 (%): mean ID F1 score across all 8 categories.</p></li>
+<li><p>mMOTP (%): mean Multiple Object Tracking Precision across all 8 categories.</p></li>
+<li><p>MOTA (%): Multiple Object Tracking Accuracy [1]. It measures the errors from false positives, false negatives and identity switches.</p></li>
+<li><p>IDF1 (%): ID F1 score [2]. The ratio of correctly identified detections over the average number of ground-truths and detections.</p></li>
+<li><p>MOTP (%): Multiple Object Tracking Precision [1]. It measures the misalignments between ground-truths and detections.</p></li>
+<li><p>FP: Number of False Positives [1].</p></li>
+<li><p>FN: Number of False Negatives [1].</p></li>
+<li><p>IDSw: Number of Identity Switches [1]. An identity switch is counted when a ground-truth object is matched with a identity that is different from the last known assigned identity.</p></li>
+<li><p>MT: Number of Mostly Tracked identities. At least 80 percent of their lifespan are tracked.</p></li>
+<li><p>PT: Number of Partially Tracked identities. At least 20 percent and less than 80 percent of their lifespan are tracked.</p></li>
+<li><p>ML: Number of Mostly Lost identities. Less of 20 percent of their lifespan are tracked.</p></li>
+<li><p>FM: Number of FragMentations. Total number of switches from tracked to not tracked detections.</p></li>
+</ul>
+<p>[1] <a class="reference external" href="https://link.springer.com/article/10.1155/2008/246309">Bernardin, Keni, and Rainer Stiefelhagen. “Evaluating multiple object tracking performance: the CLEAR MOT metrics.” EURASIP Journal on Image and Video Processing 2008 (2008): 1-10.</a></p>
+<p>[2] <a class="reference external" href="https://arxiv.org/abs/1609.01775">Ristani, Ergys, et al. “Performance measures and a data set for multi-target, multi-camera tracking.” European Conference on Computer Vision. Springer, Cham, 2016.</a></p>
+</section>
+<section id="super-category">
+<h3>Super-category<a class="headerlink" href="#super-category" title="Permalink to this headline"></a></h3>
+<p>In addition to the evaluation of all 8 classes,
+we also evaluate results for 3 super-categories specified below.
+The super-category evaluation results are provided only for the purpose of reference.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;HUMAN&quot;</span><span class="p">:</span>   <span class="p">[</span><span class="s2">&quot;pedestrian&quot;</span><span class="p">,</span> <span class="s2">&quot;rider&quot;</span><span class="p">],</span>
+<span class="s2">&quot;VEHICLE&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;car&quot;</span><span class="p">,</span> <span class="s2">&quot;bus&quot;</span><span class="p">,</span> <span class="s2">&quot;truck&quot;</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">],</span>
+<span class="s2">&quot;BIKE&quot;</span><span class="p">:</span>    <span class="p">[</span><span class="s2">&quot;motorcycle&quot;</span><span class="p">,</span> <span class="s2">&quot;bicycle&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="ignore-regions">
+<h3>Ignore regions<a class="headerlink" href="#ignore-regions" title="Permalink to this headline"></a></h3>
+<p>After the bounding box matching process in evaluation, we ignore all detected false-positive boxes that have &gt;50% overlap with the crowd region (ground-truth boxes with the “Crowd” attribute).</p>
+<p>We also ignore object regions that are annotated as 3 distracting classes (“other person”, “trailer”, and “other vehicle”) by the same strategy of crowd regions for simplicity.</p>
+</section>
+<section id="pre-training">
+<h3>Pre-training<a class="headerlink" href="#pre-training" title="Permalink to this headline"></a></h3>
+<p>It is a fair game to pre-train your network with <strong>ImageNet</strong>,
+but if other datasets are used, please note in the submission description.
+We will rank the methods without using external datasets except <strong>ImageNet</strong>.</p>
+</section>
+</section>
+<section id="multi-object-tracking-and-segmentation-segmentation-tracking">
+<h2>Multi Object Tracking and Segmentation (Segmentation Tracking)<a class="headerlink" href="#multi-object-tracking-and-segmentation-segmentation-tracking" title="Permalink to this headline"></a></h2>
+<p>We use the same metrics set as MOT above. The only difference lies in the computation of distance matrices.
+Concretely, in MOT, it is computed using box IoU. While for MOTS, mask IoU is used.</p>
+<section id="id17">
+<h3>Submission format<a class="headerlink" href="#id17" title="Permalink to this headline"></a></h3>
+<p>The submission should be in the same format as for MOT with RLE.
+Additionally, it can also be a zipped nested folder for bitmask images,
+where images belonging to the same video are placed in the same folder, named by ${videoName}.</p>
+<p>For RLE, the JSON file for each video should contain a list of per-frame result dictionaries with the following structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">videoName</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span> <span class="n">of</span> <span class="n">current</span> <span class="n">sequence</span>
+<span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span> <span class="n">of</span> <span class="n">current</span> <span class="n">frame</span>
+<span class="o">-</span> <span class="n">frameIndex</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">index</span> <span class="n">of</span> <span class="n">current</span> <span class="n">frame</span> <span class="n">within</span> <span class="n">sequence</span>
+<span class="o">-</span> <span class="n">labels</span> <span class="p">[]:</span>
+    <span class="o">-</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">unique</span> <span class="n">instance</span> <span class="nb">id</span> <span class="n">of</span> <span class="n">prediction</span> <span class="ow">in</span> <span class="n">current</span> <span class="n">sequence</span>
+    <span class="o">-</span> <span class="n">category</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">predicted</span> <span class="n">category</span>
+    <span class="o">-</span> <span class="n">rle</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">counts</span><span class="p">:</span> <span class="nb">str</span>
+        <span class="o">-</span> <span class="n">size</span><span class="p">:</span> <span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can find an example file <a class="reference external" href="https://github.com/scalabel/scalabel/blob/master/scalabel/eval/testcases/seg_track/seg_track_preds.json">here</a>.</p>
+<p>You can submit your predictions to our <a class="reference external" href="https://eval.ai/web/challenges/challenge-page/1295">evaluation server</a> hosted on EvalAI.
+Currently, the evaluation server only supports bitmask format.</p>
+</section>
+<section id="id18">
+<h3>Run Evaluation on Your Own<a class="headerlink" href="#id18" title="Permalink to this headline"></a></h3>
+<p>You can evaluate your algorithms with public annotations by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python -m bdd100k.eval.run -t seg_track -g ${gt_path} -r ${res_path}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>gt_path</cite>: the path to the ground-truth JSON file or bitmasks images folder.</p></li>
+<li><p><cite>res_path</cite>: the path to the results JSON file or bitmasks images folder.</p></li>
+</ul>
+<p>Other options.
+- You can specify the output file to save the evaluation results to by adding <cite>–out-file ${out_file}</cite>.</p>
+<p>Note that the evaluation results for RLE format and bitmask format are not exactly the same,
+but the difference is negligible (&lt; 0.1%).</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="format.html" class="btn btn-neutral float-left" title="Label Format" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Fisher Yu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
