@@ -1,172 +1,659 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<title>HoloAssist</title>
+		<meta name="description" content="Responsive HTML5 Template">
+		<meta name="author" content="webthemez">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BDD100K Documentation &mdash; BDD100K  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-    <script src="_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Data Download" href="download.html" />  
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=G-0G3CG42YMM"
-></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag("js", new Date());
+		<!-- Mobile Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  gtag("config", "G-0G3CG42YMM");
-</script>
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="images/favicon.ico">
+ 
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet"> 
+		<link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet"> 
+		<link href="css/animations.css" rel="stylesheet"> 
+		<link href="css/style.css" rel="stylesheet"> 
+		<link href="css/custom.css" rel="stylesheet">
+	</head>
 
-</head>
+	<body class="no-trans">
+		<!-- scrollToTop --> 
+		<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-            <a href="#" class="icon icon-home"> BDD100K
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="download.html">Data Download</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="download.html#videos">Videos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#video-torrent">Video Torrent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#video-parts">Video Parts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#info">Info</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#k-images">100K Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#id1">10K Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#labels">Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#drivable-area">Drivable Area</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#lane-marking">Lane Marking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#semantic-segmentation">Semantic Segmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#instance-segmentation">Instance Segmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#panoptic-segmentation">Panoptic Segmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#mot-2020-labels">MOT 2020 Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#mot-2020-images">MOT 2020 Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#detection-2020-labels">Detection 2020 Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#mots-2020-labels">MOTS 2020 Labels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#mots-2020-images">MOTS 2020 Images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#pose-estimation-labels">Pose Estimation Labels</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Using Data</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#dependency">Dependency</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#understanding-the-data">Understanding the Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#trajectories">Trajectories</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#semantic-segmentation">Semantic Segmentation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="format.html">Label Format</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="format.html#categories">Categories</a></li>
-<li class="toctree-l2"><a class="reference internal" href="format.html#attributes">Attributes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="format.html#segmentation-formats">Segmentation Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="format.html#format-conversion">Format Conversion</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="evaluate.html">Evaluation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="evaluate.html#detection">Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="evaluate.html#instance-segmentation">Instance Segmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="evaluate.html#pose-estimation">Pose Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="evaluate.html#panoptic-segmentation">Panoptic Segmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="evaluate.html#semantic-segmentation">Semantic Segmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="evaluate.html#drivable-area">Drivable Area</a></li>
-<li class="toctree-l2"><a class="reference internal" href="evaluate.html#lane-marking">Lane Marking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="evaluate.html#multiple-object-tracking">Multiple Object Tracking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="evaluate.html#multi-object-tracking-and-segmentation-segmentation-tracking">Multi Object Tracking and Segmentation (Segmentation Tracking)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
-</ul>
+		<!-- header start --> 
+		<header class="header fixed clearfix navbar navbar-fixed-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
 
-        </div>
-      </div>
-    </nav>
+						<!-- header-left start --> 
+						<div class="header-left">
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">BDD100K</a>
-      </nav>
+							<!-- logo -->
 
-      <div class="wy-nav-content">
-        <div class="rst-content style-external-links">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-      <li>BDD100K Documentation</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="bdd100k-documentation">
-<h1>BDD100K Documentation<a class="headerlink" href="#bdd100k-documentation" title="Permalink to this headline"></a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="download.html">Data Download</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Using Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="format.html">Label Format</a></li>
-<li class="toctree-l1"><a class="reference internal" href="evaluate.html">Evaluation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
-</ul>
-</div>
+							<!-- name-and-slogan -->
+							<div class="logo-section smooth-scroll">
+								<div class="brand"><a href="#banner">HoloAssist</a></div>								
+							</div>
+
+						</div>
+						<!-- header-left end -->
+
+					</div>
+					<div class="col-md-8">
+
+						<!-- header-right start --> 
+						<div class="header-right">
+
+							<!-- main-navigation start --> 
+							<div class="main-navigation animated">
+
+								<!-- navbar start --> 
+								<nav class="navbar navbar-default" role="navigation">
+									<div class="container-fluid">
+
+										<!-- Toggle get grouped for better mobile display -->
+										<div class="navbar-header">
+											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+												<span class="sr-only">Toggle navigation</span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+											</button>
+										</div>
+
+										<!-- Collect the nav links, forms, and other content for toggling -->
+										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
+											<ul class="nav navbar-nav navbar-right">
+												<!-- <li><a href="#about">Paper</a></li>-->
+												<li><a href="#challenges">Challenges</a></li>
+												<li><a href="#download">Download</a></li>
+												<li><a href="#resources">Resources</a></li>
+												<li><a href="#team">Team</a></li>
+												<li><a href="#citation">Citation</a></li>
+												<li><a href="#contact">Contact</a></li> 
+											</ul>
+										</div>
+
+									</div>
+								</nav>
+								<!-- navbar end -->
+
+							</div>
+							<!-- main-navigation end -->
+
+						</div>
+						<!-- header-right end -->
+
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- header end -->
+
+		<!-- banner start --> 
+		<div id="banner" class="banner">
+			<div class="banner-image"></div>
+			<div class="banner-caption">
+				<div class="container">
+					<div class="row">					 
+						<div class="caption-data" style="margin-top: 0px; opacity: 1;" data-animation-effect="fadeIn">
+								<h1>HoloAssist</h1>
+								<h3 class="padding-top30">A large-scale egocentric
+									human interaction dataset, <br/> where two people collaboratively
+									complete physical manipulation tasks.</h3>
+								<div class="padding-top60 contact-form">
+									<button class="btn cta-button">More</button>
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- banner end -->
+		<section class="hero-caption secPadding">
+
+		<div class="container">
+	
+	<div class="row " style="margin-top: 0px;">
+				<div class="col-sm-12">
+	<h2>HoloAssist</h2>
+<p>Building an interactive AI assistant that can perceive, reason, and collaborate with humans in the real world has been a long-standing pursuit in the AI community. This work is part of a broader research effort to develop intelligent agents that can interactively guide humans through performing tasks in the physical world. As a first step in this direction, we introduce HoloAssist, a large-scale egocentric human interaction dataset, where two people collaboratively complete physical manipulation tasks. The task performer executes the task while wearing a mixed-reality headset that captures seven synchronized data streams. The task instructor watches the performer’s egocentric video in real time and guides them verbally. By augmenting the data with action and conversational annotations and observing the rich behaviors of various participants, we present key insights into how human assistants correct mistakes, intervene in the task completion procedure, and ground their instructions to the environment. HoloAssist spans 169 hours of data captured by 350 unique instructor-performer pairs. Furthermore, we construct and present benchmarks on mistake detection, intervention type prediction, and hand forecasting, along with detailed analysis. We expect HoloAssist will provide an important resource for building AI assistants that can fluidly collaborate with humans in the real world.</p>
+ 	</div>
+	
+			</div>
+
+		</div>
+	
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="download.html" class="btn btn-neutral float-right" title="Data Download" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
 
-  <hr/>
 
-  <div role="contentinfo">
-    <p>&#169; Copyright 2022, Fisher Yu.</p>
-  </div>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
+<!-- section start --> 
+<section class="default-bg secPadding">
+			
+	<div class="container">
+	  <div class="row">
+		<div class='col-md-offset-2 col-md-8 text-center'>
+		<h2>Sample Data</h2>
+		</div>
+	  </div>
+	  <div class='row'>
+		<div class='col-md-offset-2 col-md-8'>
+		  <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+			<!-- Bottom Carousel Indicators -->
+			<ol class="carousel-indicators">
+			  <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+			  <li data-target="#quote-carousel" data-slide-to="1"></li>
+			  <li data-target="#quote-carousel" data-slide-to="2"></li>
+			  <li data-target="#quote-carousel" data-slide-to="3"></li>
+			  <li data-target="#quote-carousel" data-slide-to="4"></li>
+			</ol>
+			
+			<!-- Carousel Slides / Quotes -->
+			<div class="carousel-inner">
+			
+			  <!-- Quote 1 -->
+			  <div class="item active">
+				<blockquote>
+				  <div class="row">
+					<div class="text-center">
+					  <img src="images/samples/gopro_20.gif" style="width: 700px;height:400px;">
+					</div>
+					<div class="col-sm-9">
+					  <small>GoPro (Small Object)</small>
+					</div>
+				  </div>
+				</blockquote>
+			  </div>
+			  <!-- Quote 2 -->
+			  <div class="item">
+				<blockquote>
+				  <div class="row">
+					<div class="text-center">
+						<img src="images/samples/espresso_20.gif" style="width: 700px;height:400px;">
+					</div>
+					<div class="col-sm-9">
+					  <small>Espresso (Medium Object)</small>
+					</div>
+				  </div>
+				</blockquote>
+			  </div>
+			  <!-- Quote 3 -->
+			  <div class="item">
+				<blockquote>
+				  <div class="row">
+					<div class="text-center">
+						<img src="images/samples/rashult_20.gif" style="width: 700px;height:400px;">					
+					</div>
+					<div class="col-sm-9">
+					  <small>Ikea-Rashult (Big Object)</small>
+					</div>
+				  </div>
+				</blockquote>
+			  </div>
 
-</footer>
-        </div>
-      </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+				<!-- Quote 4 -->
+				<div class="item">
+				<blockquote>
+				  <div class="row">
+					<div class="text-center">
+						<img src="images/samples/navvis_20.gif" style="width: 700px;height:400px;">					
+					</div>
+					<div class="col-sm-9">
+					   <small> Navvis (Rare Object)</small>
+					</div>
+				  </div>
+				</blockquote>
+			  </div>
 
-</body>
+
+			  <!-- Quote 5 -->
+				<div class="item">
+					<blockquote>
+					  <div class="row">
+						<div class="text-center">
+							<img src="images/samples/nintendo_all_modal.gif" style="width: 1400px;height:400px;">					
+						</div>
+						<div class="col-sm-9">
+						   <small> Nintendo Switch - (RGB, depth, hand pose, eye gaze, IMUs) </small>
+						</div>
+					  </div>
+					</blockquote>
+				  </div>
+
+			</div>              
+		  </div>                          
+		</div>
+	  </div>
+	</div>
+			</section>
+
+<!-- section start --> 
+		<section class="section transprant-bg pclear secPadding">
+			<div class="container no-view" data-animation-effect="fadeIn">
+				<h1 id="challenges" class="title text-center">Challenges</h1>
+				<div class="space"></div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="media block-list">
+							
+							<div class="media-left">
+								<a class="publink " target="_blank" href=""><i class="fa fa-male"></i></a>
+							</div>
+							<div class="media-body"></br>
+								<a class="publink " target="_blank" href=""><h3 class="media-heading">Action recognition and anticipation</h3></a>
+								<!-- <blockquote>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo.</p>
+									
+								</blockquote>-->
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="media block-list">
+							<div class="media-left">
+								<a class="publink " target="_blank" href=""><i class="fa fa-search"></i></a>
+							</div>
+							<div class="media-body"></br>
+								<a class="publink " target="_blank" href=""><h3 class="media-heading">Mistake detection</h3></a>
+								<!-- <blockquote>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam ducimus.</p>
+									
+								</blockquote>-->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="media block-list">
+							<div class="media-left">
+								<a class="publink " target="_blank" href=""><i class="fa fa-clock-o"></i></a>
+							</div>
+							<div class="media-body"></br>
+								<a class="publink " target="_blank" href=""><h3 class="media-heading">Intervention type prediction</h3></a>
+								<!-- <blockquote>
+									<p>Dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur placeat.</p>
+									
+								</blockquote>-->
+							</div>
+						</div>
+					</div>
+				
+					<div class="col-md-6">
+						<div class="media block-list">
+							<div class="media-left">
+								<a class="publink " target="_blank" href=""><i class="fa fa-hand-o-up"></i></a>
+							</div>
+							<div class="media-body"></br>
+								<a class="publink " target="_blank" href=""><h3 class="media-heading">3D hand pose forecasting</h3></a>
+								<!-- <blockquote>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur.</p>
+									
+								</blockquote>-->
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>			  
+		</section>
+		<!-- section end -->
+
+		<!-- section start --> 
+		<section class="section clearfix no-view secPadding" data-animation-effect="fadeIn">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1 id="download" class="title text-center"> <span>Download</span></h1>
+						<p class="lead text-center">The dataset will be realised soon.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- section end -->
+ 
+		<!-- section start --> 
+		<div class="default-bg colord secPadding">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<h1 id="resources"  class="text-center">Resources</h1>
+						<p class="lead text-center">
+						<a class="publink " target="_blank" href="">Paper link </br></a>
+						<a class="publink" target="_blank" href="">Github site  </br></a>
+						<a class="publink" target="_blank" href="">Documentation site </br></a>
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- section end -->
+
+
+		<!-- section start --> 
+		<section class="section secPadding">
+			<div class="container">
+				<h1 class="text-center title" id="team">Teams</h1>
+				<div class="separator"></div>		
+				<div class="row no-view" data-animation-effect="fadeIn">
+					<div class="col-md-12">
+
+
+
+						<!-- portfolio items start -->
+						<div class="isotope-container row grid-space-20">
+							<div class="col-sm-6 col-md-3 isotope-item web-design">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/teams/xin.png" alt="" >
+										<a href="https://xinw.ai/" class="overlay">
+											<i class="fa fa-search-plus"></i>
+										</a>
+									</div>
+									<a  href="https://xinw.ai/" class="btn btn-default btn-block">Xin Wang</a>
+								</div>
+							</div>
+
+
+							<div class="col-sm-6 col-md-3 isotope-item web-design">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/teams/taein.png" alt="" >
+										<a href="https://taeinkwon.com/" class="overlay">
+											<i class="fa fa-search-plus"></i>
+										</a>
+									</div>
+									<a  href="https://taeinkwon.com/" class="btn btn-default btn-block">Taein Kwon</a>
+								</div>
+							</div>
+
+							
+							<div class="col-sm-6 col-md-3 isotope-item web-design">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/teams/mahdi.png" alt="" >
+										<a href="https://radmahdi.github.io/Home.html" class="overlay">
+											<i class="fa fa-search-plus"></i>
+										</a>
+									</div>
+									<a  href="https://radmahdi.github.io/Home.html" class="btn btn-default btn-block">Mahdi Rad</a>
+								</div>
+							</div>
+
+
+
+							<div class="col-sm-6 col-md-3 isotope-item web-design">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/teams/bowen.png" alt="" >
+										<a href="http://people.csail.mit.edu/bpan/" class="overlay">
+											<i class="fa fa-search-plus"></i>
+										</a>
+									</div>
+									<a  href="http://people.csail.mit.edu/bpan/" class="btn btn-default btn-block">Bowen Pan</a>
+								</div>
+							</div>
+
+
+							<div class="col-sm-6 col-md-3 isotope-item web-design">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/teams/ishani.png" alt="" >
+										<a href="https://www.microsoft.com/en-us/research/people/ischakra/" class="overlay">
+											<i class="fa fa-search-plus"></i>
+										</a>
+									</div>
+									<a  href="https://www.microsoft.com/en-us/research/people/ischakra/" class="btn btn-default btn-block">Ishani Chakraborty</a>
+								</div>
+							</div>
+
+
+							<div class="col-sm-6 col-md-3 isotope-item web-design">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/teams/sean.png" alt="" >
+										<a href="https://seanandrist.com/" class="overlay">
+											<i class="fa fa-search-plus"></i>
+										</a>
+									</div>
+									<a  href="https://seanandrist.com/" class="btn btn-default btn-block">Sean Andrist</a>
+								</div>
+							</div>
+
+							<div class="col-sm-6 col-md-3 isotope-item web-design">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/teams/dan.png" alt="" >
+										<a href="http://www.danbohus.com/" class="overlay">
+											<i class="fa fa-search-plus"></i>
+										</a>
+									</div>
+									<a  href="http://www.danbohus.com/" class="btn btn-default btn-block">Dan Bohus</a>
+								</div>
+							</div>
+							
+
+							<div class="col-sm-6 col-md-3 isotope-item web-design">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/teams/ashley.png" alt="" >
+										<a href="https://www.microsoft.com/en-us/research/people/ashleyf/" class="overlay">
+											<i class="fa fa-search-plus"></i>
+										</a>
+									</div>
+									<a  href="https://www.microsoft.com/en-us/research/people/ashleyf/" class="btn btn-default btn-block">Ashley Feniello</a>
+								</div>
+							</div>
+
+							<div class="col-sm-6 col-md-3 isotope-item web-design">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/teams/bugra.png" alt="" >
+										<a href="https://btekin.github.io/" class="overlay">
+											<i class="fa fa-search-plus"></i>
+										</a>
+									</div>
+									<a  href="https://btekin.github.io/" class="btn btn-default btn-block">Bugra Tekin</a>
+								</div>
+							</div>
+							
+
+							<div class="col-sm-6 col-md-3 isotope-item web-design">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/teams/felipe.png" alt="" >
+										<a href="https://www.microsoft.com/en-us/research/people/fevieira/" class="overlay">
+											<i class="fa fa-search-plus"></i>
+										</a>
+									</div>
+									<a  href="https://www.microsoft.com/en-us/research/people/fevieira/" class="btn btn-default btn-block">Felipe Vieira Frujeri</a>
+								</div>
+							</div>
+
+							<div class="col-sm-6 col-md-3 isotope-item web-design">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/teams/neel.png" alt="" >
+										<a href="http://neelj.com/" class="overlay">
+											<i class="fa fa-search-plus"></i>
+										</a>
+									</div>
+									<a  href="http://neelj.com/" class="btn btn-default btn-block">Neel Joshi</a>
+								</div>
+							</div>
+
+							<div class="col-sm-6 col-md-3 isotope-item web-design">
+								<div class="image-box">
+									<div class="overlay-container">
+										<img src="images/teams/marc.png" alt="" >
+										<a href="https://people.inf.ethz.ch/marc.pollefeys/" class="overlay">
+											<i class="fa fa-search-plus"></i>
+										</a>
+									</div>
+									<a  href="https://people.inf.ethz.ch/marc.pollefeys/" class="btn btn-default btn-block">Marc Pollefeys</a>
+								</div>
+							</div>
+
+
+							
+							
+							
+
+
+							
+
+						</div>
+						<!-- portfolio items end -->
+					
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- section end -->
+
+
+		<section class="section clearfix no-view secPadding" data-animation-effect="fadeIn">
+			<div class="container">
+			   <div class="row">
+					<div class="col-md-12 mx-auto">
+					<h1 class="text-center title" id="citation">Citation</h1>
+					 <br>
+					 <p class="text-center">
+					 <a class="publink" target="_blank" href=""><b>
+						HoloAssist: an Egocentric Human Interaction Dataset
+						for Interactive AI Assistants in the Real World</b><br></a>
+						Xin Wang*, Taein Kwon*, Mahdi Rad, Bowen Pan, Ishani Chakraborty, Sean Andrist,
+						Dan Bohus, Ashley Feniello, Bugra Tekin, Felipe Vieira Frujeri, Neel Joshi, Marc Pollefeys, 
+					 ICCV 2023, *Co-first authors</p>
+					 <br><br>
+					</div>
+					 <div class="col-lg mx-auto ">
+					 <pre style="display: block; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px">
+@InProceedings{HoloAssit,
+author = {Wang, Xin and Kwon, Taein and Rad, Mahdi and Pan, Bowen and Chakraborty, Ishani and Andrist, Sean and 
+	Bohus, Dan and Feniello, Ashley and Tekin, Bugra and Vieira Frujeri, Felipe and Joshi, Neel and Pollefeys, Marc},
+title = {HoloAssist: an Egocentric Human Interaction Dataset
+	for Interactive AI Assistants in the Real World},
+booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+year = {2023}
+}</pre>
+				  </div>
+			   </div>
+			</div>
+		 </section>
+
+		 
+
+
+
+		
+
+
+
+		<!-- footer start --> 
+		<footer id="footer">
+
+			<!-- .footer start --> 
+			<div class="footer section">
+				<div class="container">
+					<h1 class="title text-center" id="contact">Contact</h1>
+					<div class="space"></div>
+					<div class="row">
+						<!-- 
+						<div class="col-sm-6">
+							<div class="footer-content">
+								<form role="form" id="footer-form">
+									<div class="form-group has-feedback">
+										<label class="sr-only" for="name2">Name</label>
+										<input type="text" class="form-control" id="name2" placeholder="Name" name="name2" required>
+										<i class="fa fa-user form-control-feedback"></i>
+									</div>
+									<div class="form-group has-feedback">
+										<label class="sr-only" for="email2">Email address</label>
+										<input type="email" class="form-control" id="email2" placeholder="Enter email" name="email2" required>
+										<i class="fa fa-envelope form-control-feedback"></i>
+									</div>
+									<div class="form-group has-feedback">
+										<label class="sr-only" for="message2">Message</label>
+										<textarea class="form-control" rows="8" id="message2" placeholder="Message" name="message2" required></textarea>
+										<i class="fa fa-pencil form-control-feedback"></i>
+									</div>
+									<input type="submit" value="Send" class="btn btn-default">
+								</form>
+							</div>
+						</div>
+					-->
+						
+						<div class="text-center">
+							<div class="footer-content">
+							<div class="widget-content">
+								<p>Please email us if you have any questions. </p><br/>
+								
+
+								<!-- <p class="contacts"><i class="fa fa-map-marker"></i> 1508 Kembery Drive, Chicago, IL 60605 </p> -->
+
+								<!-- <p class="contacts"><i class="fa fa-phone"></i> 202-314-1583</p> -->
+
+								<p class="contacts"><i class="fa fa-envelope"></i> holoassist.data@gmail.com</p>
+
+							
+
+							</div>
+
+						</aside>
+								<ul class="social-links">
+									<li class="facebook"><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
+									<li class="twitter"><a target="_blank" href="#"><i class="fa fa-twitter"></i></a></li>
+									<li class="github"><a target="_blank" href="#"><i class="fa fa-github"></i></a></li>
+									<li class="googleplus"><a target="_blank" href="#"><i class="fa fa-book"></i></a></li>
+									<!-- <li class="googleplus"><a target="_blank" href="#"><i class="fa fa-google-plus"></i></a></li>
+									<li class="skype"><a target="_blank" href="#"><i class="fa fa-skype"></i></a></li>
+									<li class="linkedin"><a target="_blank" href="#"><i class="fa fa-linkedin"></i></a></li>
+									<li class="youtube"><a target="_blank" href="#"><i class="fa fa-youtube"></i></a></li> -->
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- .footer end -->
+
+			<!-- .subfooter start --> 
+			<div class="subfooter">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<p class="text-center">2023 HoloAssist Team</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- .subfooter end -->
+
+		</footer>
+		<!-- footer end -->
+
+		<!-- JavaScript --> 
+		<script type="text/javascript" src="plugins/jquery.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="plugins/modernizr.js"></script>
+		<script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>
+		<script type="text/javascript" src="plugins/jquery.backstretch.min.js"></script>
+		<script type="text/javascript" src="plugins/jquery.appear.js"></script>
+
+		<!-- Custom Scripts -->
+		<script type="text/javascript" src="js/custom.js"></script>
+
+	</body>
 </html>
