@@ -152,7 +152,8 @@ blockquote {
 	padding: 40px 0;
 }
 .subfooter a {
-color: #FF89BA;
+/* color: #FF89BA; */
+	color: #ffffff;
 }
 .section {
 	background-color: #ffffff;
