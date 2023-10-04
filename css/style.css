@@ -329,6 +329,17 @@ color: #949494;
 	margin-bottom: 0;
 	color: #fff;
 }
+.footnote-copy .list-unstyled li {
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: top;
+}
+.footnote-copy .list-inline {
+	padding-left: 0;
+	margin-left: -5px;
+	list-style: none;
+}
 .hero-caption{
 text-align:center;
 padding:40px 0;
