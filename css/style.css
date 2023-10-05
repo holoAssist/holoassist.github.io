@@ -899,3 +899,12 @@ border-radius: 50%;
 	-webkit-transform: scale(1);
 	transform: scale(1);
 }
+ul {
+	text-align: center;
+	list-style-position: inside;
+}
+
+li {
+	font-size: 20px;
+	text-align: center;
+}
