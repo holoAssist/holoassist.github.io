@@ -151,6 +151,15 @@ blockquote {
 	width: 100%;
 	z-index: 2;
 }
+.visually-hidden {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+}
 .subfooter {
 	background-color: #DA095F;
 	padding: 40px 0;
