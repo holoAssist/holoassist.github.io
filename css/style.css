@@ -133,6 +133,7 @@ blockquote {
 	width: 100%;
 }
 .banner:after {
+	alt=""
 	position: absolute;
 	top: 0;
 	left: 0;
