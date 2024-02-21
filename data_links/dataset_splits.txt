@@ -1,0 +1,1 @@
+https://hl2data.blob.core.windows.net/holoassist-data-release/data_splits.zip?sp=r&st=2023-10-05T06:47:21Z&se=2028-10-05T14:47:21Z&spr=https&sv=2022-11-02&sr=c&sig=GwsU6FgQ0fABotgw7EklIXgQtzEF8ijNXmI5h%2FrBQ%2B0%3D
