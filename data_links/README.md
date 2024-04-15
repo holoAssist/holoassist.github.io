@@ -54,30 +54,34 @@ We collected our dataset using [PSI studio](https://github.com/microsoft/psi/tre
 │       │   ├── 000001.png
 │       │   ├── ...
 │       │   ├── AhatDepth_synced.txt
-│       │   ├── instrinsics.txt
-│       │   ├── Pose.txt
+│       │   ├── Instrinsics.txt
+<!-- │       │   ├── Pose.txt -->
 │       │   ├── Pose_sync.txt
-│       │   ├── Timing.txt
+<!-- │       │   ├── Timing.txt -->
 │       │   └── Timing_sync.txt
 │       ├── Eyes
-│       │   ├── Eyes.txt
+<!-- │       │   ├── Eyes.txt -->
 │       │   └── Eyes_sync.txt 
 │       ├── Hands
-│       │   ├── Left.txt
+<!-- │       │   ├── Left.txt -->
 │       │   ├── Left_sync.txt
-│       │   ├── Right.txt
+<!-- │       │   ├── Right.txt -->
 │       │   └── Right_sync.txt 
 │       ├── Head
-│       │   ├── Head.txt
+<!-- │       │   ├── Head.txt -->
 │       │   └── Head_sync.txt 
 │       ├── IMU
-│       │   ├── Accelerometer.txt
+<!-- │       │   ├── Accelerometer.txt -->
 │       │   ├── Accelerometer_sync.txt
-│       │   ├── Gyroscope.txt
+<!-- │       │   ├── Gyroscope.txt -->
 │       │   ├── Gyroscope_sync.txt
-│       │   ├── Magnetometer.txt
+<!-- │       │   ├── Magnetometer.txt -->
 │       │   └── Magnetometer_sync.txt
-│       ├── Video.mp4
+│       ├── Video
+│       │   ├── Pose_sync.txt
+│       │   ├── Instrinsincs.txt
+│       │   └── VideoMp4Timing.txt
+│       ├── Video_pitchshift.mp4
 │       └── Video_compress.mp4
 ├── R012-7July-Nespresso/
 ├── R013-7July-Nespresso/
