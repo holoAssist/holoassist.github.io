@@ -1,4 +1,4 @@
-# CVPR 2023 HoloAssist:  an egocentric human interaction dataset for interactive ai assistants in the real world 
+# ICCV 2023 HoloAssist:  an egocentric human interaction dataset for interactive ai assistants in the real world 
 
 The codebase provides guidelines for using the HoloAssist dataset and running the benchmarks. 
 
