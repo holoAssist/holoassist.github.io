@@ -1,1 +1,0 @@
-https://hl2data.blob.core.windows.net/holoassist-data-release/cam_info.tar?sv=2021-10-04&st=2024-04-16T22%3A09%3A24Z&se=2029-04-17T22%3A09%3A00Z&sr=b&sp=r&sig=JBI4kF29bmgYyp6LWiHW5kYdDScCvlRUqZ0l4w0YYbE%3D

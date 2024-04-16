@@ -1,1 +1,0 @@
-https://hl2data.blob.core.windows.net/holoassist-data-release/video_compress.tar?sv=2021-10-04&st=2024-04-16T22%3A10%3A02Z&se=2029-04-17T22%3A10%3A00Z&sr=b&sp=r&sig=oPnMWw7yFq%2FO9LyzzBxQoK7E32E3uNgNd%2Brrf7xDJ1Q%3D

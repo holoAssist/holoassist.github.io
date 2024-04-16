@@ -1,1 +1,0 @@
-https://hl2data.blob.core.windows.net/holoassist-data-release/eyes.tar?sv=2021-10-04&st=2024-04-16T22%3A11%3A28Z&se=2029-04-17T22%3A11%3A00Z&sr=b&sp=r&sig=lFdzwVgDg%2ByAxHb0h1MpJGbR0qs%2Fij8jKi9MkfUFsyU%3D

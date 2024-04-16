@@ -1,1 +1,0 @@
-https://hl2data.blob.core.windows.net/holoassist-data-release/hands.tar?sv=2021-10-04&st=2024-04-16T22%3A11%3A52Z&se=2029-04-17T22%3A11%3A00Z&sr=b&sp=r&sig=Cq89TQ9ufW99RwCZUjSyBqjm85Lo2kG9rL5i6VNS5jw%3D
