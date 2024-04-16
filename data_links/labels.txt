@@ -1,1 +1,1 @@
-https://hl2data.blob.core.windows.net/holoassist-data-release/data-annotation-trainval-v1_1.json?sp=r&st=2023-10-05T06:47:21Z&se=2028-10-05T14:47:21Z&spr=https&sv=2022-11-02&sr=c&sig=GwsU6FgQ0fABotgw7EklIXgQtzEF8ijNXmI5h%2FrBQ%2B0%3D
+https://hl2data.blob.core.windows.net/holoassist-data-release/data-annotation-trainval-v1_1.json?sv=2021-10-04&st=2024-04-16T22%3A13%3A32Z&se=2029-04-17T22%3A13%3A00Z&sr=b&sp=r&sig=Yljbjs6KN77%2FQODqx%2Bc6nHVgoGVIgymD7jMgTUutYDw%3D

@@ -1,1 +1,1 @@
-https://hl2data.blob.core.windows.net/holoassist-data-release/video_pitch_shifted.tar?sp=r&st=2023-10-05T06:47:21Z&se=2028-10-05T14:47:21Z&spr=https&sv=2022-11-02&sr=c&sig=GwsU6FgQ0fABotgw7EklIXgQtzEF8ijNXmI5h%2FrBQ%2B0%3D
+https://hl2data.blob.core.windows.net/holoassist-data-release/video_pitch_shifted.tar?sv=2021-10-04&st=2024-04-16T22%3A14%3A07Z&se=2029-04-17T22%3A14%3A00Z&sr=b&sp=r&sig=8eRi1%2FLNNegtZ8JrYLf4Tfb%2Bb1OrYJD7Hvwv4GS3p84%3D
