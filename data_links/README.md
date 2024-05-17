@@ -2,26 +2,13 @@
 
 The codebase provides guidelines for using the HoloAssist dataset and running the benchmarks. 
 
-[[Project Website](https://holoassist.github.io/)][[paper](https://openaccess.thecvf.com/content/ICCV2023/html/Wang_HoloAssist_an_Egocentric_Human_Interaction_Dataset_for_Interactive_AI_Assistants_ICCV_2023_paper.html)][[data](#download-the-data-and-annotations)] 
+[[Project Website](https://holoassist.github.io/)][[paper](https://openaccess.thecvf.com/content/ICCV2023/html/Wang_HoloAssist_an_Egocentric_Human_Interaction_Dataset_for_Interactive_AI_Assistants_ICCV_2023_paper.html)]
 
 
 # Download the data and annotations 
 
 We release the dataset under the [[CDLAv2](https://cdla.dev/permissive-2-0/)] license, a permissive license. You can download the data and annotations via the links in the text files below. You can either downloading the data through your web browser
 or using [[Azcopy](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)] which will be **faster**. 
-
-
-Data links:
-- [Video (pitch shifted, 184.20 GB)](https://holoassist.github.io/data_links/video_pitch_shifted.txt)
-- [Compressed Videos (resize with width to 256, 144.62 GB)](https://holoassist.github.io/data_links/compressed_video.txt)
-- [Ahat Depth (560.46 GB)](https://holoassist.github.io/data_links/ahat_depth.txt)
-- [Eye Gaze (2.45 GB)](https://holoassist.github.io/data_links/eye_gaze.txt)
-- [Hand pose (219.24 GB)](https://holoassist.github.io/data_links/hands.txt)
-- [Head pose (4.67 GB)](https://holoassist.github.io/data_links/head.txt)
-- [IMU (4.63 GB)](https://holoassist.github.io/data_links/imu.txt)
-
-Annotation links:
-- [Annotation]()
 
 
 **Install Azcopy and download data via Azcopy in Linux.**  
