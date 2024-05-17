@@ -80,7 +80,7 @@ We collected our dataset using [PSI studio](https://github.com/microsoft/psi/tre
 
 ## Annotation Structure
 
-We have released both the annotations in the raw format and the processed format. We also provide the [train](src/data_2222/train.txt), [validation](src/data_2222/val.txt) and [test](src/data_2222/test.txt) splits. 
+We have released both the annotations in the raw format and the processed format. We also provide the train, validation and test splits. 
 
 In the raw annotations, each annotation follows 
 <pre>
@@ -200,9 +200,6 @@ Attributes for **Coarse grained action**
 - **Noun**: This is the generic noun that is part of the Coarse-Grained Action sentence.
     - Example 1: GoPro 
     - Example 2: Leg
-
-
-To convert the raw annotation into the format we used in the benchmark experiments, you can either run the [label processing script](src/data_2221/process_labels.py) or use our processed the labels in the [links](#download-the-data-and-annotations) above. 
 
 
 
