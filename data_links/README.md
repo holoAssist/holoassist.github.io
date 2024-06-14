@@ -7,10 +7,11 @@ The codebase provides guidelines for using the HoloAssist dataset and running th
 
 # Download the data and annotations 
 
-We release the dataset under the [[CDLAv2](https://cdla.dev/permissive-2-0/)] license, a permissive license. You can download the data and annotations via the links in the text files below. You can either downloading the data through your web browser
-or using [[Azcopy](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)] which will be **faster**. 
+We release the dataset under the [[CDLAv2](https://cdla.dev/permissive-2-0/)] license, a permissive license. 
+<!-- You can download the data and annotations via the links in the text files below. You can either downloading the data through your web browser -->
+<!-- or using [[Azcopy](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)] which will be **faster**.  -->
 
-
+<!-- 
 **Install Azcopy and download data via Azcopy in Linux.**  
 
 Please refer to the [official manual](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10) of using Azcopy in other OS. 
@@ -24,7 +25,7 @@ Downloading the data
 ```bash
 - azcopy copy "<data_url>" "<local_directory>" --recursive
 ```
-
+ -->
 
 ## Dataset Structure
 Once the dataset is downloaded and decompressed. You will see the dataset structure as follows. Each folder contains data for one recording session. Within each folder, you will see the data for different modalities. The text files with "_synced" in the names are synced according to the RGB modality as each modality has different sensor rate and we use the synced modalities in the experiments.  
