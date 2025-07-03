@@ -6,7 +6,15 @@
 (function($){
 	$(document).ready(function(){
 	
+		// Add alt attribute to backstretch image for accessibility
 		$(".banner-image").backstretch('images/holoassist.gif');
+		// Wait for the image to be added, then set alt attribute
+		setTimeout(function() {
+		  var $img = $(".banner-image .backstretch img");
+		  if ($img.length) {
+		    $img.attr("alt", "HoloAssist demonstration animation");
+		  }
+		}, 100);
 		
 		// Fixed header
 		//-----------------------------------------------
