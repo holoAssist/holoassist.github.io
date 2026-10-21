@@ -595,8 +595,8 @@ padding: 10px 0;
 }
 #quote-carousel img
 {
-  width: 250px;
-  height: 100px
+  width: 100%;
+  height: auto;
 }
 /* End carousel */
 

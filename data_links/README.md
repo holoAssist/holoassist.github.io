@@ -1,73 +1,58 @@
-# ICCV 2023 HoloAssist:  an egocentric human interaction dataset for interactive ai assistants in the real world 
+# ICCV 2023 HoloAssist: an Egocentric Human Interaction Dataset for Interactive AI Assistants in the Real World
 
-The codebase provides guidelines for using the HoloAssist dataset and running the benchmarks. 
+This guide describes how to download the HoloAssist dataset and interpret its files and annotations. See the [baseline code](https://github.com/Ember-HoloAssist/holoassist-release) for benchmark implementations.
 
-[[Project Website](https://holoassist.github.io/)][[paper](https://openaccess.thecvf.com/content/ICCV2023/html/Wang_HoloAssist_an_Egocentric_Human_Interaction_Dataset_for_Interactive_AI_Assistants_ICCV_2023_paper.html)]
+[Project website](https://holoassist.github.io/) · [Paper](https://openaccess.thecvf.com/content/ICCV2023/html/Wang_HoloAssist_an_Egocentric_Human_Interaction_Dataset_for_Interactive_AI_Assistants_ICCV_2023_paper.html)
 
 
-# Download the data and annotations 
+## Download the data and annotations
 
-We release the dataset under the [[CDLAv2](https://cdla.dev/permissive-2-0/)] license, a permissive license. 
-<!-- You can download the data and annotations via the links in the text files below. You can either downloading the data through your web browser -->
-<!-- or using [[Azcopy](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)] which will be **faster**.  -->
+The dataset is released under the [Community Data License Agreement – Permissive, Version 2.0](https://cdla.dev/permissive-2-0/).
 
-<!-- 
-**Install Azcopy and download data via Azcopy in Linux.**  
+1. Open the [dataset downloads](https://holoassist.github.io/#download) and choose the components you need. The links download archives or annotation files directly.
+2. Extract the `.tar` archives into a common dataset directory, preserving their recording-session paths.
+3. Download the raw training and validation annotations, [`data-annotation-trainval-v1_1.json`](https://hl2data.z5.web.core.windows.net/holoassist-data-release/data-annotation-trainval-v1_1.json). This is a JSON file and does not need extraction.
+4. Download and extract [`data-splits-v1_2.zip`](../label_files/data-splits-v1_2.zip). It contains `train-v1_2.txt`, `val-v1_2.txt`, and `test-v1_2.txt`, which identify the recording sessions in each split. The test split list is not a set of test annotations.
 
-Please refer to the [official manual](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10) of using Azcopy in other OS. 
-```bash
-- wget -O azcopy.tar.gz https://aka.ms/downloadazcopy-v10-linux
-- tar -xvf azcopy.tar.gz
-- sudo mv azcopy_linux_amd64_*/azcopy /usr/bin
-- azcopy --version
+For example, after downloading `video_compress.tar`:
+
+```sh
+mkdir -p holoassist-data
+tar -xf video_compress.tar -C holoassist-data
 ```
-Downloading the data 
-```bash
-- azcopy copy "<data_url>" "<local_directory>" --recursive
-```
- -->
 
 ## Dataset Structure
-Once the dataset is downloaded and decompressed. You will see the dataset structure as follows. Each folder contains data for one recording session. Within each folder, you will see the data for different modalities. The text files with "_synced" in the names are synced according to the RGB modality as each modality has different sensor rate and we use the synced modalities in the experiments.  
+After extracting the archives, each recording-session folder contains an `Export_py` directory with files for the downloaded modalities. The tree below illustrates the layout; only the components you download will be present. Files with `_sync` or `_synced` in their names contain data synchronized to the RGB stream. The sensors have different sampling rates, and the experiments use the synchronized data.
 
-We collected our dataset using [PSI studio](https://github.com/microsoft/psi/tree/master/Sources/MixedReality/HoloLensCapture). More detailed information regarding the data format is in [here](https://github.com/microsoft/psi/tree/master/Sources/MixedReality/HoloLensCapture/HoloLensCaptureExporter).
+The dataset was collected using the [HoloLens capture tools in Microsoft Psi](https://github.com/microsoft/psi/tree/master/Sources/MixedReality/HoloLensCapture). See the [HoloLensCaptureExporter documentation](https://github.com/microsoft/psi/tree/master/Sources/MixedReality/HoloLensCapture/HoloLensCaptureExporter) for details about the exported data formats.
 
 
 <pre>
 .
 ├── R007-7July-DSLR
 │   └── Export_py
-│       │── AhatDepth
+│       ├── AhatDepth
 │       │   ├── 000000.png
 │       │   ├── 000001.png
 │       │   ├── ...
 │       │   ├── AhatDepth_synced.txt
-│       │   ├── Instrinsics.txt
-<!-- │       │   ├── Pose.txt -->
+│       │   ├── Intrinsics.txt
 │       │   ├── Pose_sync.txt
-<!-- │       │   ├── Timing.txt -->
 │       │   └── Timing_sync.txt
 │       ├── Eyes
-<!-- │       │   ├── Eyes.txt -->
-│       │   └── Eyes_sync.txt 
+│       │   └── Eyes_sync.txt
 │       ├── Hands
-<!-- │       │   ├── Left.txt -->
 │       │   ├── Left_sync.txt
-<!-- │       │   ├── Right.txt -->
-│       │   └── Right_sync.txt 
+│       │   └── Right_sync.txt
 │       ├── Head
-<!-- │       │   ├── Head.txt -->
-│       │   └── Head_sync.txt 
+│       │   └── Head_sync.txt
 │       ├── IMU
-<!-- │       │   ├── Accelerometer.txt -->
 │       │   ├── Accelerometer_sync.txt
-<!-- │       │   ├── Gyroscope.txt -->
 │       │   ├── Gyroscope_sync.txt
-<!-- │       │   ├── Magnetometer.txt -->
 │       │   └── Magnetometer_sync.txt
 │       ├── Video
 │       │   ├── Pose_sync.txt
-│       │   ├── Instrinsincs.txt
+│       │   ├── Intrinsics.txt
 │       │   └── VideoMp4Timing.txt
 │       ├── Video_pitchshift.mp4
 │       └── Video_compress.mp4
@@ -81,60 +66,62 @@ We collected our dataset using [PSI studio](https://github.com/microsoft/psi/tre
 
 ## Annotation Structure
 
-We have released both the annotations in the raw format and the processed format. We also provide the train, validation and test splits. 
+The raw annotation file is a JSON array of recording-session objects. Each session has an `events` array containing individual annotations. The examples below show complete events from the published v1.1 file.
 
-In the raw annotations, each annotation follows 
-<pre>
+The baseline repository provides [processed labels and label mappings](https://github.com/Ember-HoloAssist/holoassist-release/tree/main/src/data_2221), including `labels_20240719_2221_classes.json` and `labels_20240719_2221_label2idx.json`. Its [`process_labels.py`](https://github.com/Ember-HoloAssist/holoassist-release/blob/main/src/data_2221/process_labels.py) script converts raw annotations into the baseline format.
+
+Each event has these fields:
+
+- `id`: integer identifying the original annotation.
+- `label`: annotation category: `Narration`, `Conversation`, `Fine grained action`, or `Coarse grained action`.
+- `start` and `end`: numeric timestamps in seconds relative to the video.
+- `type`: `range` for a time interval.
+- `attributes`: an object containing fields specific to the annotation category.
+
+Attribute names and categorical values are case-sensitive. The lists below describe their meanings; use the strings in the released JSON when parsing annotations.
+
+### Narration
+```json
 {
-    "id": int, original label id,
-    "label": "Narration", "Conversation", "Fine grained action",  or "Coarse grained action", 
-    "start": start time in seconds, 
-    "end": end time in seconds, 
-    "type":"range",
-    "attributes":{
-        Different from different label task. See below.
+    "id": 1,
+    "label": "Narration",
+    "start": 0.002,
+    "type": "range",
+    "attributes": {
+        "Long form description": "The student grabs the GoPro from the packaging and holds it in his hands with a little difficulty, grabs the camera and opens it, and just touches the battery, holds the GoPro in his hands for a few minutes, then removes the battery and the SD card, placing them on the table, inserts the battery and turns on the GoPro, and turns it off, take the lock screw and inserts it, removes it, places the stick, puts the lock screw, removes it and finally places it on the table."
     },
-},
-</pre>
+    "end": 406.135
+}
+```
+`Long form description` summarizes the session, including mistakes and how they are corrected. Narration covers the overall session, but its timestamps need not be exactly zero or the video's reported duration. Use the recorded `start` and `end` values.
 
-Attributes for **Narration**
-<pre>
-    "id": int, original label id,
-    "label": "Narration",  
-    "start": start time in seconds, 
-    "end": end time in seconds, 
-    "type":"range",
+### Conversation
+```json
+{
+    "id": 116,
+    "label": "Conversation",
+    "start": 7.451,
+    "type": "range",
     "attributes": {
-        "Long-form description": Use multiple sentences and make this as long as is necessary to be exhaustive. There are a finite number of scenarios across all videos, so make sure to call out the distinctive changes between videos, in particular, mistakes that the task performer makes in the learning process that are either self-corrected or corrected by the instructor.
-    }, 
-</pre>
-- **Example**:
-A man operates a big office printer. The instructor provides directions on how to turn on and load paper into the big office printer. The man turns on the printer and then turns it off. He then loads paper into the first drawer of the printer and replaces the first black cartridge from left to right in the printer. The instructor corrects the man on where to place the first black cartridge. The man moves the black cartridge from its current position to the correct location.
-Note: The time stamps for this annotation will always start at 0 and end at the end of the video.
-
-Attributes for **Conversation**
-<pre>
-    "id": int, original label id,
-    "label": "Narration",  
-    "start": start time in seconds, 
-    "end": end time in seconds, 
-    "type":"range",
-    "attributes": {
-        "Conversation Purpose":"instructor-start-conversation_other",
-        "Transcription":"*unintelligible*",
-        "Transcription Confidence":"low-confidence-transcription",
-    }, 
-</pre>
+        "Conversation Purpose": "instructor-start-conversation_other",
+        "sequence": "none",
+        "Transcription": "*unintelligible*",
+        "Transcription Confidence": "low-confidence-transcription",
+        "Conversation Purpose -- Other": "none"
+    },
+    "end": 8.872
+}
+```
 
 - **Conversation Purpose**: Select an option that best describes the purpose of the speech. This is limited to the individual speaking and does not include any pause time waiting for a response.
-    - Instructor-start-conversation:  Describing high-level instruction 
+    - Instructor-start-conversation:  Describing high-level instruction
     - Instructor-start-conversation:   Opening remarks
     - Instructor-start-conversation:   Closing remarks
     - Instructor-start-conversation:  Adjusting to capture better quality video
     - Instructor-start-conversation:  Confirming the previous or future action
     - Instructor-start-conversation:   Correct the wrong action
     - Instructor-start-conversation:   Follow-up instruction
-    - Instructor-start-conversation: Other 
+    - Instructor-start-conversation: Other
     - Instructor-reply-to-task performer: Confirming the previous or future action
     - Instructor-reply-to-task performer: Correct the wrong action
     - Instructor-reply-to-task performer: Follow-up instruction
@@ -142,64 +129,68 @@ Attributes for **Conversation**
     - task performer-start-conversation: ask questions
     - task performer-start-conversation: others
 
-- **Transcriptions**: Transcribe the conversation into texts.
-- **Transcription Confidence**: Confidence for the human annotator at translating the speech to text. 
+- **Transcription**: The spoken words transcribed as text.
+- **Transcription Confidence**: The human annotator’s confidence in the transcription.
 
-Attributes for **Fine grained action**
-<pre>
-    "id": int, original label id,
-    "label": "Fine grained action",  
-    "start": start time in seconds, 
-    "end": end time in seconds, 
-    "type":"range",
+### Fine grained action
+```json
+{
+    "id": 119,
+    "label": "Fine grained action",
+    "start": 11.01,
+    "type": "range",
     "attributes": {
-        "Action Correctness":"Correct Action",
-        "Incorrect Action Explanation":"none",
-        "Incorrect Action Corrected by":"none",
-        "Verb":"approach",
-        "Adjective":"none",
-        "Noun":"gopro",
-        "adverbial":"none"
-    }, 
-</pre>
+        "Action Correctness": "Correct Action",
+        "Incorrect Action Explanation": "none",
+        "Incorrect Action Corrected by": "none",
+        "Verb": "approach",
+        "Adjective": "none",
+        "Noun": "gopro",
+        "adverbial": "none"
+    },
+    "end": 12.21
+}
+```
 
-- **Action Correctness**: Indicate whether the action is correct or a mistake to achieve the task. The options are 
+- **Action Correctness**: Indicate whether the action is correct or a mistake to achieve the task. The options are
     - Correct action
     - Wrong action, corrected by instructor verbally
     - Wrong action, corrected by performer
     - Wrong action, not corrected
     - Others
-    
-- **Incorrect Action Explanation**: Provided by the human annotators to explain why the believe the action is wrong. 
-- **Incorrect Action Correct by**: Indicate whether the wrong action is later corrected by the instructor or the task performer. 
-- **Verb**, **Adjective**, **Noun**, **adverbial**: Verb, (adjective), Noun, (adverbial) for describing the fine-grained actions. 
 
-Attributes for **Coarse grained action**
-<pre>
-    "id": int, original label id,
-    "label": "Coarse grained action",  
-    "start": start time in seconds, 
-    "end": end time in seconds, 
-    "type":"range",
+- **Incorrect Action Explanation**: Provided by the human annotators to explain why they believe the action is wrong.
+- **Incorrect Action Corrected by**: Indicate whether the wrong action is later corrected by the instructor or the task performer.
+- **Verb**, **Adjective**, **Noun**, **adverbial**: Verb, (adjective), Noun, (adverbial) for describing the fine-grained actions.
+
+### Coarse grained action
+```json
+{
+    "id": 3,
+    "label": "Coarse grained action",
+    "start": 10.975,
+    "type": "range",
     "attributes": {
-        "Action sentence":"The student changes the battery for the GoPro.",
-        "Verb":"exchange",
-        "Adjective":"none",
-        "Noun":"battery"
-    }, 
-</pre>
+        "Action sentence": "The student grabs the GoPro.",
+        "Verb": "grab",
+        "Adjective": "none",
+        "Noun": "gopro"
+    },
+    "end": 28.21
+}
+```
 
-- **Action sentence**: A factual statement describing the interaction that the collector/camera wearer is performing with a digital device and the software on the device. 
+- **Action sentence**: A factual statement describing the interaction that the collector/camera wearer is performing with a digital device and the software on the device.
     - Example 1: A man changes the battery of the bright green GoPro.
     - Example 2: A woman attaches the leg to a chair.
-- **Verb**: This verb was part of the Coarse-Grained Action sentence.
+- **Verb**: The action verb associated with the sentence.
     - Example 1: Change
     - Example 2: Attach
-- **Adjective**: This is the adjective(s) that helps distinguish the noun from other similar items. This field is optional if the noun is unique enough on its own. 
+- **Adjective**: This is the adjective(s) that helps distinguish the noun from other similar items. This field is optional if the noun is unique enough on its own.
     - Example 1: bright green
     - Example 2: [blank]
 - **Noun**: This is the generic noun that is part of the Coarse-Grained Action sentence.
-    - Example 1: GoPro 
+    - Example 1: GoPro
     - Example 2: Leg
 
 
@@ -207,7 +198,7 @@ Attributes for **Coarse grained action**
 **Citation**
 
 
-If you find the code or data useful. Please consider cite the paper at
+If you find the code or data useful, please cite the paper:
 ```
 @inproceedings{wang2023holoassist,
   title={Holoassist: an egocentric human interaction dataset for interactive ai assistants in the real world},
